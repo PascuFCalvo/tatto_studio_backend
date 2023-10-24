@@ -38,7 +38,7 @@ export class CreateTableCitas1698166728949 implements MigrationInterface {
                 {
                   name: "type",
                   type: "enum",
-                  enum: ["tattoo", "piercing"],
+                  enum: ["tattoo", "piercing", "other"],
                   default: '"tattoo"',
                 },
                 {
