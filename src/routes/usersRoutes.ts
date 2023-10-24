@@ -2,9 +2,9 @@ import { Router } from "express";
 
 const router = Router()
 
-router.post('/register')
-router.post('/login')
-router.get('/profile')
-router.get('/all')
+router.get('/')
+router.post('/')
+router.put('/')
+router.delete('/')
 
 export { router }
