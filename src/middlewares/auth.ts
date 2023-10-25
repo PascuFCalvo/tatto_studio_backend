@@ -12,15 +12,26 @@ const auth = (req: any, res: Response, next: NextFunction) => {
 
     const token = req.headers.authorization.split(" ")[1];
 
-    if (!token) {
+    if (token) {
+      const tokenDecoded = jwt.verify(token, "matasuegras") as TokenDecoded;
+      req.token = tokenDecoded;
       return res.json({
-        message: "token no valido",
+        message: "PERFIL DE USUARIO",
+        token: req.token
       });
     }
 
-    const tokenDecoded = jwt.verify(token, "matasuegras") as TokenDecoded;
+    else {
+      return res.json({
+        message: "token no valido",
+        token: req.token
+      });
+    }
+    
 
-    req.token = tokenDecoded;
+    
+
+    
 
     next();
   } catch (error) {
