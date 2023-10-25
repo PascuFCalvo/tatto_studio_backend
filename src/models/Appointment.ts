@@ -12,8 +12,6 @@ export class Appointment extends BaseEntity{
   @Column()
   description!:string
 
-  @Column()
-  client_name!:string
 
   @Column()
   tattoo_artist!:string

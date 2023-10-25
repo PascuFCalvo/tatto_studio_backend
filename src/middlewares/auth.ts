@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { TokenDecoded } from "../types";
 
 const auth = (req: any, res: Response, next: NextFunction) => {
   try {
     if (!req.headers.authorization) {
       return res.json({
-        message: "AUTH_REQUIRED",
+        message: "introduce el token",
       });
     }
 
@@ -13,11 +14,11 @@ const auth = (req: any, res: Response, next: NextFunction) => {
 
     if (!token) {
       return res.json({
-        message: "AUTH_REQUIRED",
+        message: "token no valido",
       });
     }
 
-    const tokenDecoded = jwt.verify(token, "secreto");
+    const tokenDecoded = jwt.verify(token, "matasuegras") as TokenDecoded;
 
     req.token = tokenDecoded;
 

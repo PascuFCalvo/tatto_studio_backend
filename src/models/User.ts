@@ -21,6 +21,7 @@ export class User extends BaseEntity {
   @Column()
   level!: string
   
+    
   @Column()
   created_at!: Date
   
