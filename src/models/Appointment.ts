@@ -12,15 +12,20 @@ export class Appointment extends BaseEntity{
   @Column()
   description!:string
 
+  @Column()
+  tattoo_artist!:number
 
   @Column()
-  tattoo_artist!:string
-  
+  client!:number
+
   @Column()
   type!:string
   
   @Column()
-  appointment_data!:Date
+  appointment_date!:string
+
+  @Column()
+  appointment_turn!:string
   
   @Column()
    created_at!:Date

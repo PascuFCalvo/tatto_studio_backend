@@ -2,6 +2,7 @@ import { Response, Request } from "express";
 import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import bcrypt from "bcrypt";
+import { Appointment } from "../models/Appointment";
 
 const register = async (req: Request, res: Response) => {
   try {
@@ -39,7 +40,6 @@ const register = async (req: Request, res: Response) => {
     });
   }
 };
-
 const login = async (req: Request, res: Response) => {
   try {
     const email = req.body.email;
@@ -90,24 +90,75 @@ const login = async (req: Request, res: Response) => {
     });
   }
 };
-const profile = async (req: any, res: Response) => {
+const profile = async (req: Request, res: Response) => {
   try {
+    console.log(req.token.id);
     const user = await User.findOneBy({
       id: req.token.id,
     });
 
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Usuario no encontrado",
+      });
+    }
+
     return res.json({
       success: true,
-      message: "profile user retrieved",
+      message: "Perfil de usuario recuperado",
       data: user,
     });
   } catch (error) {
-    return res.json({
+    return res.status(500).json({
       success: false,
-      message: "user profile cant be retrieved",
-      error: error,
+      message: "No se pudo recuperar el perfil del usuario",
     });
   }
 };
+const update = async (req: Request, res: Response) => {
+  try {
+    const updatedUserData = req.body;
+    const userId = req.token.id;
+    const message = "Usuario actualizado correctamente";
 
-export { register, login, profile };
+    await User.update({ id: userId }, updatedUserData);
+
+    const updatedUser = await User.findOneBy({ id: userId });
+
+    const response = {
+      message,
+      user: updatedUser,
+    };
+
+    return res.json(response);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: "Hubo un error al actualizar el usuario" });
+  }
+};
+const myAppointments = async (req: Request, res: Response) => {
+  try {
+
+    if (req.token.id === req.body.id){
+    const myAppointments = await Appointment.find()
+    const message = "Tus Citas"
+
+    const response = {
+      message: message,
+      myAppointments
+    }
+
+    return res.json(response)
+   }
+
+    
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: "No se han recuperado las citas" });
+  }
+};
+
+export { register, login, profile, update , myAppointments};

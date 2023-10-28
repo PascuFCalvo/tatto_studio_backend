@@ -14,6 +14,10 @@ export class CreateTableTattooArtists1698248971658 implements MigrationInterface
                 isGenerated: true,
                 generationStrategy: "increment",
               },
+              {name: "user_id",
+              type: "int"
+
+              },
               {
                 name: "user_name",
                 type: "varchar",
@@ -47,7 +51,7 @@ export class CreateTableTattooArtists1698248971658 implements MigrationInterface
                 length: "255",
               },
               {
-                name: "Formation",
+                name: "formation",
                 type: "varchar",
                 length: "255",
               },
@@ -63,7 +67,18 @@ export class CreateTableTattooArtists1698248971658 implements MigrationInterface
                 default: "CURRENT_TIMESTAMP",
                 onUpdate: "CURRENT_TIMESTAMP",
               },
-            ],
+              
+            ]
+            ,
+            foreignKeys: [
+              {
+                columnNames: ["user_id"],
+                referencedTableName: "users",
+                referencedColumnNames: ["id"],
+                onDelete: "CASCADE",
+              },
+            ]
+            
           }),
           true
         );

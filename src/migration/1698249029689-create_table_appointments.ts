@@ -27,11 +27,13 @@ export class CreateTableAppointments1698249029689 implements MigrationInterface 
             {
               name: "tattoo_artist",
               type: "int",
+              
             },
   
             {
               name: "client",
               type: "int",
+              
             }
             ,
             {
@@ -41,8 +43,8 @@ export class CreateTableAppointments1698249029689 implements MigrationInterface 
               default: '"tattoo"',
             },
             {
-              name: "appointment_data",
-              type: "date",
+              name: "appointment_date",
+              type: "varchar",
             },
             {
               name: "appointment_turn",

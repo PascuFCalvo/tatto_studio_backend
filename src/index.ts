@@ -1,15 +1,21 @@
 import express from "express";
+import {router as routerPublic} from "./routes/publicRoutes"
 import { router as routerUsers } from "./routes/usersRoutes";
+import { router as routerTattoo_artists } from "./routes/tattoo_artistRoutes";
+import { router as routerAppointment } from "./routes/appointmentRoutes";
 import { AppDataSource } from "../database";
 
 const app = express()
 
 app.use(express.json())
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 
 // routes
 app.use('/user', routerUsers)
+app.use('/appointments', routerAppointment)
+app.use('/tattoo_artist', routerTattoo_artists)
+app.use('/public',routerPublic)
 
 AppDataSource.initialize()
   .then(() => {

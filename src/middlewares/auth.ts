@@ -2,11 +2,13 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { TokenDecoded } from "../types";
 
-const auth = (req: any, res: Response, next: NextFunction) => {
+const auth = (req: Request, res: Response, next: NextFunction) => {
+  
+  
   try {
     if (!req.headers.authorization) {
-      return res.json({
-        message: "introduce el token",
+      return res.status(401).json({
+        error: "Por favor, proporciona un token de autenticación",
       });
     }
 
@@ -15,28 +17,16 @@ const auth = (req: any, res: Response, next: NextFunction) => {
     if (token) {
       const tokenDecoded = jwt.verify(token, "matasuegras") as TokenDecoded;
       req.token = tokenDecoded;
-      return res.json({
-        message: "PERFIL DE USUARIO",
-        token: req.token
+      console.log(req.token);
+      next(); 
+    } else {
+      return res.status(401).json({
+        error: "Token no válido",
       });
     }
-
-    else {
-      return res.json({
-        message: "token no valido",
-        token: req.token
-      });
-    }
-    
-
-    
-
-    
-
-    next();
   } catch (error) {
-    return res.json({
-      error: "Not auth",
+    return res.status(500).json({
+      error: "Error en la autenticación",
     });
   }
 };

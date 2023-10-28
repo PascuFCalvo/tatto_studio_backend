@@ -1,14 +1,17 @@
 import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm"
-import { Tattoo_artist } from "./Tattoo_artist"
+import { User } from "./User"
 
-@Entity("users")
-export class User extends BaseEntity {
+@Entity("tattoo-artists")
+export class Tattoo_artist extends BaseEntity {
 
   @PrimaryGeneratedColumn()
   id!: number
 
   @Column()
   user_name!: string
+
+  @Column()
+  user_id!:number
 
   @Column()
   email!: string
@@ -22,7 +25,12 @@ export class User extends BaseEntity {
   @Column()
   level!: string
   
-    
+  @Column()
+  licenseNumber!: string
+
+  @Column()
+  formation!: string
+  
   @Column()
   created_at!: Date
   
@@ -33,15 +41,13 @@ export class User extends BaseEntity {
   @JoinTable({
      name: "appointments",
      joinColumn: {
-        name: "client",
+        name: "tatto_artists",
         referencedColumnName: "id",
      },
      inverseJoinColumn: {
-        name: "tattoo_artist",
+        name: "client",
         referencedColumnName: "id",
      },
 })
-userTattoArtists!:Tattoo_artist[]
+TattoArtistUsers!:User[]
 }
-
-
