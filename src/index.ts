@@ -1,8 +1,10 @@
 import express from "express";
-import {router as routerPublic} from "./routes/publicRoutes"
+
+import { router as routerPublic} from "./routes/publicRoutes"
 import { router as routerUsers } from "./routes/usersRoutes";
 import { router as routerTattoo_artists } from "./routes/tattoo_artistRoutes";
 import { router as routerAppointment } from "./routes/appointmentRoutes";
+import { router as routerBlackAlien } from "./routes/blackAlienRoutes";
 import { AppDataSource } from "../database";
 
 const app = express()
@@ -16,6 +18,7 @@ app.use('/user', routerUsers)
 app.use('/appointments', routerAppointment)
 app.use('/tattoo_artist', routerTattoo_artists)
 app.use('/public',routerPublic)
+app.use('/blackAlien', routerBlackAlien)
 
 AppDataSource.initialize()
   .then(() => {

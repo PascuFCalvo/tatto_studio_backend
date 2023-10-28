@@ -1,12 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 
+
 const isBlackAlien = (req: any, res: Response, next: NextFunction) => {
-
-  if (req.token.level !== "black_alien") {
-    return res.json('NO PUEDES PASAR')
+  console.log(req.token) 
+  if (req.token && req.token.level === "black_alien") {
+   
+    next();
+  } else {
+    return res.json('NO PUEDES PASAR');
   }
-
-  next();
 }
 
 export { isBlackAlien }

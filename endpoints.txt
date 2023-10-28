@@ -1,0 +1,27 @@
+el email de los usuarios siempre va a ser <nombre>@<nombre>.como
+la contraseña siempre es el <nombre>
+
+
+Resumen endpoints:
+
+localhost:4000/user
+					/register 	 	post,	crear usuarios
+					/login			post,	logear usuarios
+					/profile		get,	obtener el perfil    	
+					/udpate			put,	modificar un usuario
+					/myAppointments	get,	obtener las citas
+					
+localhost:4000/appointment
+					/create			post, 	crear citas
+					/update			put, 	modificar citas
+					/delete			delete, eliminar citas
+					
+localhost:4000/tatto_artist
+					/register		post, 	crear usuarios (solo por el blackAlien)
+					/myAppointments	get, 	ver tus citas como tauador (solo para tatuadores)
+					
+localhost:4000/public
+					/tattoArtists 	get,	ver los tatuadores del estudio (ruta publica a todo el mundo)
+					
+localhost:4000/blackAlien
+					/getUsers		get,	ver todos los usuarios (solo para el blackAlien)

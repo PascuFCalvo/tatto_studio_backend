@@ -142,7 +142,11 @@ const myAppointments = async (req: Request, res: Response) => {
   try {
 
     if (req.token.id === req.body.id){
-    const myAppointments = await Appointment.find()
+      const user = req.body.id
+
+      const myAppointments = await Appointment.find({
+        where: { client : user},
+      });
     const message = "Tus Citas"
 
     const response = {

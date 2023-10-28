@@ -56,14 +56,16 @@ const registertattoo = async (req: Request, res: Response) => {
 };
 
 const TattooAppointments = async (req: Request, res: Response) => {
-  
+  console.log("llega")
   try {
     
     if (req.token.id === req.body.id){
       const tattooArtistId = req.body.tattoo_artist_id;
-      const appointments = await Appointment.find({
+      const appointments = await Appointment.find(
+        {
         where: { tattoo_artist : tattooArtistId },
-      });
+      }
+      );
       const message = "Tattoo Citas"
   
       const response = {
@@ -79,7 +81,7 @@ const TattooAppointments = async (req: Request, res: Response) => {
     return res.status(500).json({
       success: false,
       message: "cant find appointments",
-      error: error.message,
+      error: error
     });
   }
 };
