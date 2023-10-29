@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import bcrypt from "bcrypt";
 import { Appointment } from "../models/Appointment";
+import { Tattoo_artist } from "../models/Tattoo_artist";
 
 const register = async (req: Request, res: Response) => {
   try {
@@ -140,29 +141,33 @@ const update = async (req: Request, res: Response) => {
 };
 const myAppointments = async (req: Request, res: Response) => {
   try {
-
-    if (req.token.id === req.body.id){
-      const user = req.body.id
+    const message = "Your user appointments";
+    if (req.token.id === req.body.id) {
+      const user = req.body.id;
 
       const myAppointments = await Appointment.find({
-        where: { client : user},
+        where: { client: user },
+        select: {
+          id: true,
+          tattoo_artist: true,
+          title: true,
+          description: true,
+          type: true,
+          appointment_date: true,
+          appointment_turn: true,
+        },
       });
-    const message = "Your user appointments"
 
-    const response = {
-      message: message,
-      myAppointments
+      const response = {
+        message: message,
+        myAppointments,
+      };
+
+      return res.json(response);
     }
-
-    return res.json(response)
-   }
-
-    
   } catch (error) {
-    return res
-      .status(500)
-      .json({ error: "Appointments cannot be retrieved" });
+    return res.status(500).json({ error: "Appointments cannot be retrieved" });
   }
 };
 
-export { register, login, profile, update , myAppointments};
+export { register, login, profile, update, myAppointments };

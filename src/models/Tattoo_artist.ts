@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { User } from "./User"
+import { Appointment } from "./Appointment"
 
 @Entity("tattoo-artists")
 export class Tattoo_artist extends BaseEntity {
@@ -50,4 +51,7 @@ export class Tattoo_artist extends BaseEntity {
      },
 })
 TattoArtistUsers!:User[]
+
+
+
 }

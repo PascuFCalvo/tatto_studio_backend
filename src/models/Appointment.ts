@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Tattoo_artist } from "./Tattoo_artist"
 
 @Entity("appointments")
 export class Appointment extends BaseEntity{
@@ -33,5 +34,5 @@ export class Appointment extends BaseEntity{
   @Column()
   updated_at!:Date
 
-
+  
 }
