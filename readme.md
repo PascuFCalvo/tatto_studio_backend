@@ -115,81 +115,81 @@ localhost:4000/user
 
 localhost:4000/appointment
 >/create TIPO: **POST** : crear citas
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY
->>>{
- "title":"your title",
- "description":"your description",
- "tattoo_artist": tattoo_artist id
- "client":user id,
- "type":ENUM “tattoo” or “piercing”
- "date":"YYYY/MM/DD",
- "turn":ENUM “morning” or “evening”
-}
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY  
+>>>{  
+ "title":"your title",  
+ "description":"your description",  
+ "tattoo_artist": tattoo_artist id  
+ "client":user id,  
+ "type":ENUM “tattoo” or “piercing”  
+ "date":"YYYY/MM/DD",  
+ "turn":ENUM “morning” or “evening”  
+}  
 
 
 >/update TIPO: **PUT** : actualizar citas
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY
->>>{
-"id": appointment_id
-"title":"your title",
-"description":"your description",
-"tattoo_artist": tattoo_artist id
-"client":user id,
-"type":ENUM “tattoo” or “piercing”
-"date":"YYYY/MM/DD",
-"turn":ENUM “morning” or “evening”
-}
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY  
+>>>{  
+"id": appointment_id  
+"title":"your title",  
+"description":"your description",  
+"tattoo_artist": tattoo_artist id  
+"client":user id,  
+"type":ENUM “tattoo” or “piercing”  
+"date":"YYYY/MM/DD",  
+"turn":ENUM “morning” or “evening”  
+}  
 
->/delete TIPO: **DELETE** : eliminar citas
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY
+>/delete TIPO: **DELETE** : eliminar citas  
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY  
 >>>{
-“Id”:appointment_id
+“Id”:appointment_id  
 }
 
 ###### Endpoints para tattoo_artist:
 
 localhost:4000/tatto_artist
->/register TIPO: **POST** : convertir un usuario en tatuador
->>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)
->>BODY
+>/register TIPO: **POST** : convertir un usuario en tatuador  
+>>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
+>>BODY  
 >>>{
-"user_id":6,
-"user_name":"DonRogelio",
-"email":"donrogelio@donrogelio.com",
-"password":"donrogelio",
-"phone":"666666666",
-"licenseNumber":"666",
-"formation": "curso de jeringas..."
+"user_id":6,  
+"user_name":"DonRogelio",  
+"email":"donrogelio@donrogelio.com",  
+"password":"donrogelio",  
+"phone":"666666666",  
+"licenseNumber":"666",  
+"formation": "curso de jeringas..."  
+}  
+
+>/myAppointments TIPO: **GET** : ver tus citas como tatuador  
+>>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de level tattoo o black_alien)  
+>>BODY  
+>>>{
+"Id":id del tatuador como usuario (columna 2)  
+"Tattoo_artist_id":id del tatuador (columna 1)  
+}
+###### Endpoints para el black_alien (superadmin):  
+>/tattoArtists TIPO: **GET** : Ver el listado de todos los usuarios de la pagina  
+>>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
+>>BODY: nada  
+
+>/changelevel TIPO: **PUT** : Cambiar el nivel de un usuario  
+>>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
+>>BODY:  
+>>>{
+  "id":id del usuario,  
+  "level":ENUM "user, tattoo, admin, black_alien"  
 }
 
->/myAppointments TIPO: **GET** : ver tus citas como tatuador
->>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de level tattoo o black_alien)
->>BODY
->>>{
-"Id":id del tatuador como usuario (columna 2)
-"Tattoo_artist_id":id del tatuador (columna 1)
-}
-###### Endpoints para el black_alien (superadmin):
->/tattoArtists TIPO: **GET** : Ver el listado de todos los usuarios de la pagina
->>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)
->>BODY: nada
-
->/changelevel TIPO: **PUT** : Cambiar el nivel de un usuario
->>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)
->>BODY:
->>>{
-  "id":id del usuario,
-  "level":ENUM "user, tattoo, admin, black_alien"
-}
-
->/deleteuser TIPO: **DELETE** : Eliminar un usuario
->>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)
->>BODY: nada
->>>{
-  "id":id del usuario,
+>/deleteuser TIPO: **DELETE** : Eliminar un usuario  
+>>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
+>>BODY: nada  
+>>>{  
+  "id":id del usuario,  
 }
 
 
@@ -197,14 +197,14 @@ localhost:4000/tatto_artist
 
 
 ###### Endpoints publicos:
-localhost:4000/public
->/tattoArtists TIPO: **GET** : Ver el listado de tatuadores
->>AUTH: nada
->>BODY: nada
+localhost:4000/public  
+>/tattoArtists TIPO: **GET** : Ver el listado de tatuadores  
+>>AUTH: nada  
+>>BODY: nada  
 
->/getImagesTIPO: **GET** : Ver el listado de tatuajes
->>AUTH: nada
->>BODY: nada
+>/getImagesTIPO: **GET** : Ver el listado de tatuajes  
+>>AUTH: nada  
+>>BODY: nada  
 
 
 
