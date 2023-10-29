@@ -5,7 +5,7 @@ const isTattooArtist = (req: any, res: Response, next: NextFunction) => {
     next();
     
   }else {
-    return res.json('NO PUEDES PASAR')
+    return res.json('you are not a tattoo artist')
   }
 
   

@@ -15,7 +15,7 @@ const register = async (req: Request, res: Response) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!emailRegex.test(email)) {
-      return res.json({ mensaje: "Correo electrónico no válido" });
+      return res.json({ mensaje: "email format not valid" });
     }
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
@@ -35,7 +35,7 @@ const register = async (req: Request, res: Response) => {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "user cant be created",
+      message: "user cannot be created",
       error: error,
     });
   }
@@ -100,19 +100,19 @@ const profile = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "Usuario no encontrado",
+        message: "User not found",
       });
     }
 
     return res.json({
       success: true,
-      message: "Perfil de usuario recuperado",
+      message: "User profile retrieved",
       data: user,
     });
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "No se pudo recuperar el perfil del usuario",
+      message: "User profile cannot be retrieved",
     });
   }
 };
@@ -147,7 +147,7 @@ const myAppointments = async (req: Request, res: Response) => {
       const myAppointments = await Appointment.find({
         where: { client : user},
       });
-    const message = "Tus Citas"
+    const message = "Your user appointments"
 
     const response = {
       message: message,
@@ -161,7 +161,7 @@ const myAppointments = async (req: Request, res: Response) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ error: "No se han recuperado las citas" });
+      .json({ error: "Appointments cannot be retrieved" });
   }
 };
 

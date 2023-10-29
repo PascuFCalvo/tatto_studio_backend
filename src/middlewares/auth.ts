@@ -8,7 +8,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
   try {
     if (!req.headers.authorization) {
       return res.status(401).json({
-        error: "Por favor, proporciona un token de autenticación",
+        error: "Please, insert a Token for authorization",
       });
     }
 
@@ -21,12 +21,12 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
       next(); 
     } else {
       return res.status(401).json({
-        error: "Token no válido",
+        error: "Token invalid",
       });
     }
   } catch (error) {
     return res.status(500).json({
-      error: "Error en la autenticación",
+      error: "Authentication error",
     });
   }
 };

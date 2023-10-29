@@ -7,12 +7,13 @@ const getUsers = async (req: Request, res: Response) => {
     const Users = await User.find();
 
     return res.json({
+      message: "User list",
       Users,
     });
   } catch {
     return res.json({
       success: true,
-      message: "nanana",
+      message: "Cant retrieve user list",
     });
   }
 };
@@ -43,7 +44,7 @@ const deleteUser = async (req: Request, res: Response) => {
     await User.delete({ id: idtoDelete });
 
     return res.json({
-      message: "user deleted"
+      message: "User deleted"
     })
 
 

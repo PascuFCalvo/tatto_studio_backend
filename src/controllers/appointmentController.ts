@@ -18,7 +18,7 @@ const create = async (req: Request, res: Response) => {
     const regex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
     const checkDate = regex.test(formatedDate);
     if (checkDate === false) {
-      return res.json({ error: "fecha no valida" });
+      return res.json({ error: "Date Invalid" });
     }
 
     const checkAvailableDate = await Appointment.findOne({
@@ -30,7 +30,9 @@ const create = async (req: Request, res: Response) => {
     });
 
     if (checkAvailableDate) {
-      return res.json({ error: "fecha ocupada" });
+      return res.json({
+        error: "Date and turn already in use for this tatto artist ",
+      });
     }
 
     const newAppointment = await Appointment.create({
@@ -46,7 +48,13 @@ const create = async (req: Request, res: Response) => {
     return res.json({
       success: true,
       message: "Appointment created succesfully",
-      appointment: newAppointment,
+      appointment: {
+        Title: newAppointment.title,
+        Description: newAppointment.description,
+        Artist: newAppointment.tattoo_artist,
+        Date: newAppointment.appointment_date,
+        Turn: newAppointment.appointment_turn,
+      },
     });
   } catch (error) {
     return res.status(500).json({
@@ -60,16 +68,15 @@ const update = async (req: Request, res: Response) => {
   try {
     const appointmentToUpdate = req.body.id;
     const updatedAppointment = req.body;
-    const messageReturn = "SE HA ACTUALIZADO LA CITA";
+    const messageReturn = "Appointment updated succesfully";
 
-    if(req.body.appointment_date)
-
-    await Appointment.update(
-      {
-        id: parseInt(appointmentToUpdate),
-      },
-      updatedAppointment
-    );
+    if (req.body.appointment_date)
+      await Appointment.update(
+        {
+          id: parseInt(appointmentToUpdate),
+        },
+        updatedAppointment
+      );
 
     const updatedUser = await Appointment.findOneBy({
       id: parseInt(appointmentToUpdate),
@@ -89,14 +96,14 @@ const update = async (req: Request, res: Response) => {
 const deleteAppointment = async (req: Request, res: Response) => {
   try {
     const appointmentId = req.body.id;
-    const messageReturn = "CITA ELIMINADA";
+    const messageReturn = "Appointment deleted";
 
     const appointmentToRemove = await Appointment.findOneBy({
       id: parseInt(appointmentId),
     });
 
     if (!appointmentToRemove) {
-      return res.status(404).json({ message: "Cita no encontrada" });
+      return res.status(404).json({ message: "Appointment not found" });
     }
 
     await Appointment.delete(appointmentId);
@@ -107,9 +114,8 @@ const deleteAppointment = async (req: Request, res: Response) => {
     };
 
     return res.json(response);
-  } catch (error: any) {
-    console.error("Error al eliminar la cita:", error.message);
-    return res.status(500).json({ message: "Error al eliminar la cita" });
+  } catch (error) {
+    return res.status(500).json({ error });
   }
 };
 
