@@ -82,33 +82,33 @@ localhost:4000/user
 }  
 
 >/login TIPO: **POST**: logear usuarios
->>AUTH: nada
+>>AUTH: nada  
 >>BODY
 >>>{
-“Email”:”your email”
-“Password:”your password”
+“Email”:”your email”  
+“Password:”your password”  
 }
 
 >/profile TIPO: **GET**: obtener tu perfil de usuario
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY: nada
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY: nada  
 
 >/update TIPO: **PUT**: modificar usuarios
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY
->>>En el body es opcional cual campo cambiar
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY  
+>>>En el body es opcional cual campo cambiar  
 {
-"user_name":"your name",
-"email":"your mail",
-"password":"your password",
-"phone":"your phone"
+"user_name":"your name",  
+"email":"your mail",  
+"password":"your password",  
+"phone":"your phone"  
 }
 
 >/myAppointments TIPO: **GET**: ver tus citas como usuario
->>AUTH: token tipo bearer obtenido al hacer el login
->>BODY
+>>AUTH: token tipo bearer obtenido al hacer el login  
+>>BODY  
 >>>{
-“id": your id
+“id": your id  
 }
 
 ###### Endpoints para appointments:
