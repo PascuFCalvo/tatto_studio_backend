@@ -74,7 +74,7 @@ localhost:4000/user
 >/register TIPO: **POST** : crear usuarios
 >>AUTH: nada  
 >>BODY
->>>{
+>>>{  
 "user_name":"your name",  
 "email":"your email",  
 "password":"your password",  
@@ -84,7 +84,7 @@ localhost:4000/user
 >/login TIPO: **POST**: logear usuarios
 >>AUTH: nada  
 >>BODY
->>>{
+>>>{  
 “Email”:”your email”  
 “Password:”your password”  
 }
@@ -97,7 +97,7 @@ localhost:4000/user
 >>AUTH: token tipo bearer obtenido al hacer el login  
 >>BODY  
 >>>En el body es opcional cual campo cambiar  
-{
+{  
 "user_name":"your name",  
 "email":"your mail",  
 "password":"your password",  
@@ -107,7 +107,7 @@ localhost:4000/user
 >/myAppointments TIPO: **GET**: ver tus citas como usuario
 >>AUTH: token tipo bearer obtenido al hacer el login  
 >>BODY  
->>>{
+>>>{  
 “id": your id  
 }
 
@@ -117,7 +117,7 @@ localhost:4000/appointment
 >/create TIPO: **POST** : crear citas
 >>AUTH: token tipo bearer obtenido al hacer el login  
 >>BODY  
->>>{  
+>>>{    
  "title":"your title",  
  "description":"your description",  
  "tattoo_artist": tattoo_artist id  
@@ -131,7 +131,7 @@ localhost:4000/appointment
 >/update TIPO: **PUT** : actualizar citas
 >>AUTH: token tipo bearer obtenido al hacer el login  
 >>BODY  
->>>{  
+>>>{    
 "id": appointment_id  
 "title":"your title",  
 "description":"your description",  
@@ -145,7 +145,7 @@ localhost:4000/appointment
 >/delete TIPO: **DELETE** : eliminar citas  
 >>AUTH: token tipo bearer obtenido al hacer el login  
 >>BODY  
->>>{
+>>>{  
 “Id”:appointment_id  
 }
 
@@ -155,7 +155,7 @@ localhost:4000/tatto_artist
 >/register TIPO: **POST** : convertir un usuario en tatuador  
 >>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
 >>BODY  
->>>{
+>>>{  
 "user_id":6,  
 "user_name":"DonRogelio",  
 "email":"donrogelio@donrogelio.com",  
@@ -180,7 +180,7 @@ localhost:4000/tatto_artist
 >/changelevel TIPO: **PUT** : Cambiar el nivel de un usuario  
 >>AUTH: token tipo bearer obtenido al hacer el login (solo sirve el de black_alien)  
 >>BODY:  
->>>{
+>>>{  
   "id":id del usuario,  
   "level":ENUM "user, tattoo, admin, black_alien"  
 }
