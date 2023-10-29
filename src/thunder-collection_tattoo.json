@@ -1,0 +1,294 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "tattoo",
+    "dateExported": "2023-10-29T11:09:39.737Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a47a758f-3043-45d1-90ae-42c4c7b0cd47",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "register a user",
+            "url": "localhost:4000/user/myAppointments",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-25T18:16:18.151Z",
+            "modified": "2023-10-28T16:19:37.971Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"id\":2\n  \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ4MzIyNCwiZXhwIjoxNjk4NzQyNDI0fQ.OdbDR79RGMOYIAbwI7DxQK6Imwt9RP6iu43bwZh64yc"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7a19829c-3231-45d2-9dda-2ddeed38dbc7",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "login as a user",
+            "url": "localhost:4000/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-10-25T18:17:47.945Z",
+            "modified": "2023-10-29T10:26:12.823Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n  {\n  \n    \"email\":\"black@black.com\",\n    \"password\":\"black\"\n      }\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODUwOTg1MiwiZXhwIjoxNjk4NzY5MDUyfQ.GCSY3feVSiSc5XUMlKsWHej56UQCtXPIvfgcP6SnoaA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "21a6450a-acc4-4904-82c1-10b7ddd523f0",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get profile",
+            "url": "localhost:4000/user/profile",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-25T19:16:58.071Z",
+            "modified": "2023-10-28T16:06:40.371Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"dewis@consin.com\",\n  \"password\":\"dewis\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUwOTEwOCwiZXhwIjoxNjk4NzY4MzA4fQ.J0pZfGuD1QFOF48OA_QACC6e0O0jHYjzEuqWLbIubkM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "032bdcd2-4694-493f-a9f3-3fa31db582c5",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "update a user",
+            "url": "localhost:4000/user/update",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-10-26T13:13:01.794Z",
+            "modified": "2023-10-26T14:19:57.816Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"email\":\"lululu@emma.com\",\n  \"password\":\"lalala\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcl9uYW1lIjoibGFsYWxhbCIsImVtYWlsIjoibGFsYWxhQGVtbWEuY29tIiwicGhvbmUiOiI2MTExMTExMTEiLCJsZXZlbCI6InVzZXIiLCJpYXQiOjE2OTgzMjk5NTMsImV4cCI6MTY5ODU4OTE1M30.8k2aKqlzJzLSiPU__pEleJ2B8YkhaAX1BFyFevy2bYw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a42e812a-79d2-4787-9794-91da16f78ef4",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "tatto_artist register",
+            "url": "localhost:4000/tattoo_artist/register",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-10-28T07:41:34.358Z",
+            "modified": "2023-10-28T08:57:18.440Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n    \n    {\n      \"user_id\":6,\n      \"user_name\":\"DonRogelio\",\n      \"email\":\"donrogelio@donrogelio.com\",\n      \"password\":\"donrogelio\",\n      \"phone\":\"666666666\",\n      \"licenseNumber\":\"666\",\n      \"formation\": \"curso de jeringas\"\n      \n      \n    }",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODQ4MjI5NCwiZXhwIjoxNjk4NzQxNDk0fQ.5TAjXcYDkGrnXgrlbHmoIA0hH2UCiPvrLB2mnymZBGE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "58b51956-6c15-4a31-88f2-5fcce4f52f94",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "create an appointment",
+            "url": "localhost:4000/appointments/create",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-10-28T08:08:48.348Z",
+            "modified": "2023-10-29T09:14:10.401Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"title\":\"black tatto0\",\n      \"description\":\"una calavera\",\n      \"tattoo_artist\":4,\n      \"client\":2,\n      \"type\":\"tattoo\",\n      \"date\":\"2023/10/12\",\n      \"turn\":\"EveninG\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ3OTE1OSwiZXhwIjoxNjk4NzM4MzU5fQ.3Zr482G7AYuM0R51kjfZ0K07P707Tp6hZrxY5bUAGGQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f4c8452-d799-4955-86c5-942b295f002e",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "update an appointment",
+            "url": "localhost:4000/appointments/update",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2023-10-28T08:19:44.603Z",
+            "modified": "2023-10-29T09:08:21.537Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n     \n      \"id\":5,\n      \"title\":\"tatto tradicional\",\n      \"description\":\"ssssssss\",\n      \"tattoo_artist\":4,\n      \"client\":4,\n      \"type\":\"tattoo\"\n      \n     \n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ3OTE1OSwiZXhwIjoxNjk4NzM4MzU5fQ.3Zr482G7AYuM0R51kjfZ0K07P707Tp6hZrxY5bUAGGQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b810d422-d59f-4d0f-aefc-cb0b009594f1",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get all my appointments",
+            "url": "localhost:4000/user/myAppointments",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-10-28T08:56:23.229Z",
+            "modified": "2023-10-28T08:56:23.229Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n      \"id\":2\r\n  \r\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ4MzIyNCwiZXhwIjoxNjk4NzQyNDI0fQ.OdbDR79RGMOYIAbwI7DxQK6Imwt9RP6iu43bwZh64yc"
+            },
+            "tests": []
+        },
+        {
+            "_id": "85a2f4fb-3c99-4e99-b06e-b3f1aaa9031f",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get all appointments for a tatto artist",
+            "url": "localhost:4000/tattoo_artist/myAppointments",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-10-28T10:00:00.834Z",
+            "modified": "2023-10-29T07:41:14.449Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":6,\n  \"tattoo_artist_id\":4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcl9uYW1lIjoiRG9uUm9nZWxpbyIsImVtYWlsIjoiZG9ucm9nZWxpb0Bkb25yb2dlbGlvLmNvbSIsInBob25lIjoiNjMzMjIyMjIyIiwibGV2ZWwiOiJ0YXR0b28iLCJpYXQiOjE2OTg1NjUyNjAsImV4cCI6MTY5ODgyNDQ2MH0.Pry83ui3zEccxs7LdMjLh5-YeKK-QDiApiCmbtcZWVk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2a3f0237-1a09-482f-926b-ceb9953c92d7",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get all users as a superadmin (black_alien)",
+            "url": "localhost:4000/blackAlien/getUsers",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-10-28T10:38:39.511Z",
+            "modified": "2023-10-28T16:54:53.433Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUxMjAzMywiZXhwIjoxNjk4NzcxMjMzfQ.flzor-SK-3UttiQ-1bOGqgXSYWXnjXkSoEeazEEo2R4"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d3e07907-9af4-4fed-9849-203d6d85564b",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "change a user level",
+            "url": "localhost:4000/blackAlien/changelevel",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2023-10-29T10:22:12.561Z",
+            "modified": "2023-10-29T10:22:12.561Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":4,\n  \"level\":\"tattoo\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUxMjAzMywiZXhwIjoxNjk4NzcxMjMzfQ.flzor-SK-3UttiQ-1bOGqgXSYWXnjXkSoEeazEEo2R4"
+            },
+            "tests": []
+        },
+        {
+            "_id": "acf9c494-6d65-461f-a08a-6dd3fe8fa523",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "delete a user",
+            "url": "localhost:4000/blackAlien/deleteuser",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2023-10-29T10:26:44.618Z",
+            "modified": "2023-10-29T10:26:44.618Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":7\n  \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODU3NTE3MiwiZXhwIjoxNjk4ODM0MzcyfQ.Soj_GZN8mF-Pg-g2j1o1Qb3pF4HMk0-vsdkkrZrc6hc"
+            },
+            "tests": []
+        },
+        {
+            "_id": "259a8d85-502e-4383-b751-c2ab57f38350",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get all images",
+            "url": "localhost:4000/public/getImages",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-10-29T11:08:33.467Z",
+            "modified": "2023-10-29T11:08:33.467Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

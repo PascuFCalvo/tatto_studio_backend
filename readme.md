@@ -197,7 +197,12 @@ localhost:4000/tatto_artist
 
 
 ###### Endpoints publicos:
+localhost:4000/public
 >/tattoArtists TIPO: **GET** : Ver el listado de tatuadores
+>>AUTH: nada
+>>BODY: nada
+
+>/getImagesTIPO: **GET** : Ver el listado de tatuajes
 >>AUTH: nada
 >>BODY: nada
 
@@ -209,6 +214,7 @@ localhost:4000/tatto_artist
 
 - ��A dia de hoy valida la ficha al crearla, pero tengo que mejorar la funcion para que tambienla valide al actualizar
 - ��Añadir algun endpoint mas como por ejemplo ver la galeria para todos los usuarios
+- ��Valorar si al crear un tatuador borrarlo de la tabla de usuarios
 
 
 

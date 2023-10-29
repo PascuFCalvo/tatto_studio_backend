@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getArtists } from "../controllers/publicControllers";
+import { getArtists, getImages } from "../controllers/publicControllers";
 
 
 
@@ -7,5 +7,6 @@ import { getArtists } from "../controllers/publicControllers";
 const router = Router()
 
 router.get('/tattooArtists', getArtists)
+router.get('/getImages', getImages)
 
 export { router }

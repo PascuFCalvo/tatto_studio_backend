@@ -8,6 +8,7 @@ import { CreateTableAppointments1698249029689 } from "./src/migration/1698249029
 import { CreateTablePortfolio1698249119765 } from "./src/migration/1698249119765-create_table_portfolio"
 import { CreateTableImages1698249146590 } from "./src/migration/1698249146590-create_table_images"
 import { Tattoo_artist } from "./src/models/Tattoo_artist"
+import { ImageGallery } from "./src/models/ImageGallery"
 
 
 
@@ -19,7 +20,7 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "karanas3689",
   database: "tattoo",
-  entities: [User,Appointment,Tattoo_artist],
+  entities: [User,Appointment,Tattoo_artist,ImageGallery],
   migrations: [
     CreateTableUsers1698248906793,
     CreateTableTattooArtists1698248971658,

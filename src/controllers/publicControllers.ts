@@ -1,9 +1,10 @@
 import { Response, Request } from "express";
+import { ImageGallery } from "../models/ImageGallery";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 
 const getArtists = async (req: Request, res: Response) => {
   try {
-    console.log("entra")
+    
     const Artists = await Tattoo_artist.find();
 
     return res.json({
@@ -18,4 +19,25 @@ const getArtists = async (req: Request, res: Response) => {
   }
 };
 
-export { getArtists };
+const getImages = async (req: Request, res: Response) => {
+  try {
+    console.log("entra");
+    
+    const Images = await ImageGallery.find();
+
+    console.log("sigue");
+    
+    return res.json({
+      message:"Images list",
+      Images,
+    });
+  } catch {
+    return res.json({
+      success: true,
+      message: "cant retrieve images list",
+    });
+  }
+};
+
+
+export { getArtists ,getImages};
