@@ -72,14 +72,14 @@ el secreto para encriptar es **matasuegras**
 
 localhost:4000/user
 >/register TIPO: **POST** : crear usuarios
->>AUTH: nada
+>>AUTH: nada  
 >>BODY
 >>>{
-"user_name":"your name",
-"email":"your email",
-"password":"your password",
-"phone":"your phone"
-}
+"user_name":"your name",  
+"email":"your email",  
+"password":"your password",  
+"phone":"your phone"  
+}  
 
 >/login TIPO: **POST**: logear usuarios
 >>AUTH: nada
