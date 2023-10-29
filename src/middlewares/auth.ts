@@ -17,7 +17,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
     if (token) {
       const tokenDecoded = jwt.verify(token, "matasuegras") as TokenDecoded;
       req.token = tokenDecoded;
-      console.log(req.token);
+      
       next(); 
     } else {
       return res.status(401).json({

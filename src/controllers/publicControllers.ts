@@ -4,11 +4,10 @@ import { Tattoo_artist } from "../models/Tattoo_artist";
 
 const getArtists = async (req: Request, res: Response) => {
   try {
-    
     const Artists = await Tattoo_artist.find();
 
     return res.json({
-      message:"Tattoo artist list",
+      message: "Tattoo artist list",
       Artists,
     });
   } catch {
@@ -21,14 +20,10 @@ const getArtists = async (req: Request, res: Response) => {
 
 const getImages = async (req: Request, res: Response) => {
   try {
-    console.log("entra");
-    
     const Images = await ImageGallery.find();
 
-    console.log("sigue");
-    
     return res.json({
-      message:"Images list",
+      message: "Images list",
       Images,
     });
   } catch {
@@ -39,5 +34,4 @@ const getImages = async (req: Request, res: Response) => {
   }
 };
 
-
-export { getArtists ,getImages};
+export { getArtists, getImages };

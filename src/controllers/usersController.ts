@@ -4,6 +4,8 @@ import { User } from "../models/User";
 import bcrypt from "bcrypt";
 import { Appointment } from "../models/Appointment";
 import { Tattoo_artist } from "../models/Tattoo_artist";
+import { getConnection } from "typeorm";
+
 
 const register = async (req: Request, res: Response) => {
   try {
@@ -93,7 +95,7 @@ const login = async (req: Request, res: Response) => {
 };
 const profile = async (req: Request, res: Response) => {
   try {
-    console.log(req.token.id);
+    
     const user = await User.findOneBy({
       id: req.token.id,
     });
