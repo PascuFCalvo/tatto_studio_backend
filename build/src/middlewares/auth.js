@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.auth = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+require("dotenv/config");
 const auth = (req, res, next) => {
     try {
         if (!req.headers.authorization) {
@@ -14,7 +15,7 @@ const auth = (req, res, next) => {
         }
         const token = req.headers.authorization.split(" ")[1];
         if (token) {
-            const tokenDecoded = jsonwebtoken_1.default.verify(token, "matasuegras");
+            const tokenDecoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
             req.token = tokenDecoded;
             next();
         }

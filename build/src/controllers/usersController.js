@@ -17,6 +17,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const User_1 = require("../models/User");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const Appointment_1 = require("../models/Appointment");
+require("dotenv/config");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_name = req.body.user_name;
@@ -75,7 +76,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             email: user.email,
             phone: user.phone,
             level: user.level,
-        }, "matasuegras", {
+        }, process.env.JWT_SECRET, {
             expiresIn: "72h",
         });
         return res.json({
@@ -143,6 +144,10 @@ const myAppointments = (req, res) => __awaiter(void 0, void 0, void 0, function*
         const message = "Your user appointments";
         if (req.token.id === req.body.id) {
             const user = req.body.id;
+            //paginacion
+            const pageSize = parseInt(req.query.skip) || 2;
+            const page = parseInt(req.query.skip) || 1;
+            const skip = (page - 1) * pageSize;
             const myAppointments = yield Appointment_1.Appointment.find({
                 where: { client: user },
                 select: {
@@ -154,6 +159,8 @@ const myAppointments = (req, res) => __awaiter(void 0, void 0, void 0, function*
                     appointment_date: true,
                     appointment_turn: true,
                 },
+                skip: skip,
+                take: pageSize,
             });
             const response = {
                 message: message,

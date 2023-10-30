@@ -36,4 +36,3 @@ exports.AppDataSource = new typeorm_1.DataSource({
     synchronize: false,
     logging: false,
 });
-// export { AppDataSource }

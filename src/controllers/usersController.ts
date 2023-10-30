@@ -5,9 +5,12 @@ import bcrypt from "bcrypt";
 import { Appointment } from "../models/Appointment";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import "dotenv/config"
+import { validation } from "../validations/validations";
+
 
 
 const register = async (req: Request, res: Response) => {
+
   try {
     const user_name = req.body.user_name;
     const email = req.body.email;
@@ -22,6 +25,12 @@ const register = async (req: Request, res: Response) => {
     }
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
+
+    const validationName = validation(user_name, 255)
+    if(!validationName){
+      return res.json ({nessage: `${user_name} not valid`})
+    }
+
 
     const newUser = await User.create({
       user_name: user_name,
@@ -145,20 +154,45 @@ const myAppointments = async (req: Request, res: Response) => {
   try {
     const message = "Your user appointments";
     if (req.token.id === req.body.id) {
-      const user = req.body.id;
+      const userId = req.body.id;
+
+      //paginacion
+
+      const pageSize:any = parseInt(req.query.skip as string ) || 2
+      const page:any = parseInt(req.query.skip as string ) || 1
+
+      const skip = (page - 1 ) * pageSize;
+
+      // const myAppointments = await User.find({
+      //   select: {
+      //     appointments:{}
+      //   },
+      //   where:{ id: req.token.id},
+      //   relations:{
+      //     userTattoArtists:true, 
+      //   }
+      // })
 
       const myAppointments = await Appointment.find({
-        where: { client: user },
-        select: {
-          id: true,
-          tattoo_artist: true,
-          title: true,
-          description: true,
-          type: true,
-          appointment_date: true,
-          appointment_turn: true,
+        where: { client: userId },
+        // select: {
+        //   id: true,
+        //   tattoo_artist: true,
+        //   title: true,
+        //   description: true,
+        //   type: true,
+        //   appointment_date: true,
+        //   appointment_turn: true,
+        // },
+        relations:{
+          userAppointment:true,
+          tattoArtistAppointment:true,
         },
-      });
+
+
+      //   skip:skip,
+      //   take: pageSize,
+       });
 
       const response = {
         message: message,
@@ -167,8 +201,8 @@ const myAppointments = async (req: Request, res: Response) => {
 
       return res.json(response);
     }
-  } catch (error) {
-    return res.status(500).json({ error: "Appointments cannot be retrieved" });
+  } catch (error:any) {
+    return res.status(500).json({ error: error.message});
   }
 };
 
