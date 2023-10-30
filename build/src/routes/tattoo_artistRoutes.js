@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const auth_1 = require("../middlewares/auth");
+const tattoo_artistController_1 = require("../controllers/tattoo_artistController");
+const isBlackAlien_1 = require("../middlewares/isBlackAlien");
+const isTattooArtist_1 = require("../middlewares/isTattooArtist");
+const router = (0, express_1.Router)();
+exports.router = router;
+router.post('/register', auth_1.auth, isBlackAlien_1.isBlackAlien, tattoo_artistController_1.registertattoo);
+router.get('/myAppointments', auth_1.auth, isTattooArtist_1.isTattooArtist, tattoo_artistController_1.TattooAppointments);
