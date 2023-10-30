@@ -6,6 +6,7 @@ import { router as routerTattoo_artists } from "./routes/tattoo_artistRoutes";
 import { router as routerAppointment } from "./routes/appointmentRoutes";
 import { router as routerBlackAlien } from "./routes/blackAlienRoutes";
 import { AppDataSource } from "../database";
+import "dotenv/config"
 
 const app = express()
 

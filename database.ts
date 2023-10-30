@@ -9,17 +9,17 @@ import { CreateTablePortfolio1698249119765 } from "./src/migration/1698249119765
 import { CreateTableImages1698249146590 } from "./src/migration/1698249146590-create_table_images"
 import { Tattoo_artist } from "./src/models/Tattoo_artist"
 import { ImageGallery } from "./src/models/ImageGallery"
-
+import "dotenv/config"
 
 
 
 export const AppDataSource = new DataSource({
   type: "mysql",
-  host: "localhost",
+  host: process.env.DB_HOST,
   port: 3306,
-  username: "root",
-  password: "karanas3689",
-  database: "tattoo",
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
   entities: [
     User,
     Appointment,
