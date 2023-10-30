@@ -175,23 +175,23 @@ const myAppointments = async (req: Request, res: Response) => {
 
       const myAppointments = await Appointment.find({
         where: { client: userId },
-        // select: {
-        //   id: true,
-        //   tattoo_artist: true,
-        //   title: true,
-        //   description: true,
-        //   type: true,
-        //   appointment_date: true,
-        //   appointment_turn: true,
-        // },
+        select: {
+          id: true,
+          tattoo_artist: true,
+          title: true,
+          description: true,
+          type: true,
+          appointment_date: true,
+          appointment_turn: true,
+        },
         relations:{
           userAppointment:true,
           tattoArtistAppointment:true,
         },
 
 
-      //   skip:skip,
-      //   take: pageSize,
+        skip:skip,
+        take: pageSize,
        });
 
       const response = {
