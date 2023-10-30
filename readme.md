@@ -55,10 +55,12 @@ Tercer proyecto creado durante la semana 5 y 6 del bootcamp. Creacion de un back
 
 ## Como utilizar la appi:
 
-**Instalar node**
-**instalar express**
-**instalar typeORM**
-**instalar postman o la extension de VSCODE Thunderclient**
+**Instalar node**  
+**instalar express**  
+**instalar typeORM**  
+**instalar postman o la extension de VSCODE Thunderclient**  
+
+ejecutar el comando **npm run dev** en el terminal
 
 Lo primero crear un usuario y hardcodearlo en la BBDD directamnte con el level **black_alien**.
 

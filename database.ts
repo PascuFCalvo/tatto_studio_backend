@@ -20,7 +20,12 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "karanas3689",
   database: "tattoo",
-  entities: [User,Appointment,Tattoo_artist,ImageGallery],
+  entities: [
+    User,
+    Appointment,
+    Tattoo_artist,
+    ImageGallery
+  ],
   migrations: [
     CreateTableUsers1698248906793,
     CreateTableTattooArtists1698248971658,
