@@ -4,13 +4,10 @@ import { User } from "../models/User";
 import bcrypt from "bcrypt";
 import { Appointment } from "../models/Appointment";
 import { Tattoo_artist } from "../models/Tattoo_artist";
-import "dotenv/config"
+import "dotenv/config";
 import { validation } from "../validations/validations";
 
-
-
 const register = async (req: Request, res: Response) => {
-
   try {
     const user_name = req.body.user_name;
     const email = req.body.email;
@@ -26,11 +23,25 @@ const register = async (req: Request, res: Response) => {
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
 
-    const validationName = validation(user_name, 255)
-    if(!validationName){
-      return res.json ({nessage: `${user_name} not valid`})
+    const validationName = validation(user_name, 255);
+    if (!validationName) {
+      return res.json({ nessage: `${user_name} not valid` });
     }
 
+    const validationPassword = validation(user_name, 50);
+    if (!validationPassword) {
+      return res.json({ nessage: `${password} not valid` });
+    }
+
+    const validationEmail = validation(email, 255);
+    if (!validationEmail) {
+      return res.json({ nessage: `${email} not valid` });
+    }
+
+    const validationPhone = validation(phone, 12);
+    if (!validationPhone) {
+      return res.json({ nessage: `${phone} not valid` });
+    }
 
     const newUser = await User.create({
       user_name: user_name,
@@ -42,7 +53,7 @@ const register = async (req: Request, res: Response) => {
     return res.json({
       success: true,
       message: "User created succesfully",
-      token: newUser,
+      user: newUser,
     });
   } catch (error) {
     return res.status(500).json({
@@ -56,6 +67,16 @@ const login = async (req: Request, res: Response) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
+
+    const validationPassword = validation(password, 50);
+    if (!validationPassword) {
+      return res.json({ nessage: `${password} not valid` });
+    }
+
+    const validationEmail = validation(email, 255);
+    if (!validationEmail) {
+      return res.json({ nessage: `${email} not valid` });
+    }
 
     const user = await User.findOneBy({
       email: email,
@@ -104,7 +125,6 @@ const login = async (req: Request, res: Response) => {
 };
 const profile = async (req: Request, res: Response) => {
   try {
-    
     const user = await User.findOneBy({
       id: req.token.id,
     });
@@ -134,6 +154,34 @@ const update = async (req: Request, res: Response) => {
     const userId = req.token.id;
     const message = "Usuario actualizado correctamente";
 
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!emailRegex.test(req.body.email)) {
+      return res.json({ mensaje: "email format not valid" });
+    }
+
+    const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
+
+    const validationName = validation(req.body.user_name, 255);
+    if (!validationName) {
+      return res.json({ nessage: `${req.body.user_name} not valid` });
+    }
+
+    const validationPassword = validation(req.body.password, 50);
+    if (!validationPassword) {
+      return res.json({ nessage: `${req.body.password} not valid` });
+    }
+
+    const validationEmail = validation(req.body.email, 255);
+    if (!validationEmail) {
+      return res.json({ nessage: `${req.body.email} not valid` });
+    }
+
+    const validationPhone = validation(req.body.phone, 12);
+    if (!validationPhone) {
+      return res.json({ nessage: `${req.body.phone} not valid` });
+    }
+
     await User.update({ id: userId }, updatedUserData);
 
     const updatedUser = await User.findOneBy({ id: userId });
@@ -141,6 +189,7 @@ const update = async (req: Request, res: Response) => {
     const response = {
       message,
       user: updatedUser,
+      password: encryptedPassword,
     };
 
     return res.json(response);
@@ -156,22 +205,17 @@ const myAppointments = async (req: Request, res: Response) => {
     if (req.token.id === req.body.id) {
       const userId = req.body.id;
 
+      const validationId = validation(userId, 255);
+      if (!validationId) {
+        return res.json({ nessage: `${userId} not valid` });
+      }
+
       //paginacion
 
-      const pageSize:any = parseInt(req.query.skip as string ) || 2
-      const page:any = parseInt(req.query.skip as string ) || 1
+      const pageSize: any = parseInt(req.query.skip as string) || 5;
+      const page: any = parseInt(req.query.skip as string) || 1;
 
-      const skip = (page - 1 ) * pageSize;
-
-      // const myAppointments = await User.find({
-      //   select: {
-      //     appointments:{}
-      //   },
-      //   where:{ id: req.token.id},
-      //   relations:{
-      //     userTattoArtists:true, 
-      //   }
-      // })
+      const skip = (page - 1) * pageSize;
 
       const myAppointments = await Appointment.find({
         where: { client: userId },
@@ -184,25 +228,34 @@ const myAppointments = async (req: Request, res: Response) => {
           appointment_date: true,
           appointment_turn: true,
         },
-        relations:{
-          userAppointment:true,
-          tattoArtistAppointment:true,
+        relations: {
+          userAppointment: true,
+          tattoArtistAppointment: true,
         },
 
-
-        skip:skip,
+        skip: skip,
         take: pageSize,
-       });
+      });
+
+      const filteredAppointments = myAppointments.map((appointment) => ({
+        Appointment_id: appointment.id,
+        title: appointment.title,
+        type: appointment.type,
+        description: appointment.description,
+        appointment_date: appointment.appointment_date,
+        appointment_turn: appointment.appointment_turn,
+        Tattoo_artist: appointment.tattoArtistAppointment.user_name,
+      }));
 
       const response = {
         message: message,
-        myAppointments,
+        myAppointments: filteredAppointments,
       };
 
       return res.json(response);
     }
-  } catch (error:any) {
-    return res.status(500).json({ error: error.message});
+  } catch (error: any) {
+    return res.status(500).json({ error: error.message });
   }
 };
 

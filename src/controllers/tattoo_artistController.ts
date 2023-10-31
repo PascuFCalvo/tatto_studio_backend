@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import { Tattoo_artist } from "../models/Tattoo_artist";
 import bcrypt from "bcrypt";
 import { Appointment } from "../models/Appointment";
+import { validation } from "../validations/validations";
+import { User } from "../models/User";
 
 const registertattoo = async (req: Request, res: Response) => {
   try {
@@ -22,6 +24,50 @@ const registertattoo = async (req: Request, res: Response) => {
     }
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
+
+    const validationName = validation(user_name, 255);
+    if (!validationName) {
+      return res.json({ nessage: `${user_name} not valid` });
+    }
+
+    const validationLicenseNumber = validation(licenseNumber, 25);
+    if (!validationLicenseNumber) {
+      return res.json({ nessage: `${licenseNumber} not valid` });
+    }
+
+    const validationFormation = validation(formation, 255);
+    if (!validationFormation) {
+      return res.json({ nessage: `${formation} not valid` });
+    }
+
+    const validationLevel = validation(level, 255);
+    if (!validationLevel) {
+      return res.json({ nessage: `${level} not valid` });
+    }
+
+    const validationPassword = validation(user_name, 50);
+    if (!validationPassword) {
+      return res.json({ nessage: `${password} not valid` });
+    }
+
+    const validationEmail = validation(email, 255);
+    if (!validationEmail) {
+      return res.json({ nessage: `${email} not valid` });
+    }
+
+    const validationPhone = validation(phone, 12);
+    if (!validationPhone) {
+      return res.json({ nessage: `${phone} not valid` });
+    }
+
+    const modifyUSerToTattooArtist = await User.findOneBy({
+      email: email,
+    });
+
+    await User.update(
+      { id: modifyUSerToTattooArtist!.id },
+      { level: "tattoo" }
+    );
 
     const newTattooArtist = await Tattoo_artist.create({
       user_id: user_id,
@@ -51,15 +97,45 @@ const registertattoo = async (req: Request, res: Response) => {
 const TattooAppointments = async (req: Request, res: Response) => {
   try {
     if (req.token.id === req.body.id) {
+
+      const validationId = validation(req.body.id, 255);
+      if (!validationId) {
+      return res.json({ nessage: `${req.body.id} not valid` });
+    }
+
+      
+
       const tattooArtistId = req.body.tattoo_artist_id;
-      const appointments = await Appointment.find({
+      const pageSize: any = parseInt(req.query.skip as string) || 5;
+      const page: any = parseInt(req.query.skip as string) || 1;
+      const skip = (page - 1) * pageSize;
+      const tattooAppointments = await Appointment.find({
         where: { tattoo_artist: tattooArtistId },
+
+        relations: {
+          userAppointment: true,
+        },
+
+        skip: skip,
+        take: pageSize,
       });
       const message = "Your tattoo appointments";
 
+      const filteredTattooAppointments = tattooAppointments.map(
+        (appointment) => ({
+          Appointment_id: appointment.id,
+          title: appointment.title,
+          type: appointment.type,
+          description: appointment.description,
+          appointment_date: appointment.appointment_date,
+          appointment_turn: appointment.appointment_turn,
+          Client: appointment.userAppointment.user_name,
+        })
+      );
+
       const response = {
         message,
-        myAppointments: appointments,
+        myAppointments: filteredTattooAppointments,
       };
 
       return res.json(response);

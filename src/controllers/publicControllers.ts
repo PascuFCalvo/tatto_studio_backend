@@ -4,7 +4,15 @@ import { Tattoo_artist } from "../models/Tattoo_artist";
 
 const getArtists = async (req: Request, res: Response) => {
   try {
-    const Artists = await Tattoo_artist.find();
+    const Artists = await Tattoo_artist.find({
+      select: {
+        id: true,
+        user_name: true,
+        formation:true,
+        licenseNumber:true,
+      
+      },
+    });
 
     return res.json({
       message: "Tattoo artist list",
