@@ -41,19 +41,19 @@ export class Tattoo_artist extends BaseEntity {
   @OneToMany(() => Appointment, (appointment)=>appointment.tattoArtistAppointment)
   tattooArtistAppointments!:Appointment[]
 
-//   @ManyToMany(() => Tattoo_artist)
-//   @JoinTable({
-//      name: "appointments",
-//      joinColumn: {
-//         name: "tatto_artists",
-//         referencedColumnName: "id",
-//      },
-//      inverseJoinColumn: {
-//         name: "client",
-//         referencedColumnName: "id",
-//      },
-// })
-// TattoArtistUsers!:User[]
+  @ManyToMany(() => Tattoo_artist)
+  @JoinTable({
+     name: "appointments",
+     joinColumn: {
+        name: "tatto_artists",
+        referencedColumnName: "id",
+     },
+     inverseJoinColumn: {
+        name: "client",
+        referencedColumnName: "id",
+     },
+})
+TattoArtistUsers!:User[]
 
 
 

@@ -4,7 +4,8 @@ import {} from "dayjs";
 
 const create = async (req: Request, res: Response) => {
   try {
-    const title = req.body.title;
+
+    if (req.token.id === req.body.client) {const title = req.body.title;
     const description = req.body.description;
     const tattoo_artist = req.body.tattoo_artist;
     const client = req.body.client;
@@ -55,7 +56,8 @@ const create = async (req: Request, res: Response) => {
         Date: newAppointment.appointment_date,
         Turn: newAppointment.appointment_turn,
       },
-    });
+    });}
+    
   } catch (error) {
     return res.status(500).json({
       success: false,

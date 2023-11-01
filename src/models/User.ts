@@ -37,19 +37,19 @@ export class User extends BaseEntity {
 
 
 
-//   @ManyToMany(() => Tattoo_artist)
-//   @JoinTable({
-//      name: "appointments",
-//      joinColumn: {
-//         name: "client",
-//         referencedColumnName: "id",
-//      },
-//      inverseJoinColumn: {
-//         name: "tattoo_artist",
-//         referencedColumnName: "id",
-//      },
-// })
-// userTattoArtists!:Tattoo_artist[]
+  @ManyToMany(() => Tattoo_artist)
+  @JoinTable({
+     name: "appointments",
+     joinColumn: {
+        name: "client",
+        referencedColumnName: "id",
+     },
+     inverseJoinColumn: {
+        name: "tattoo_artist",
+        referencedColumnName: "id",
+     },
+})
+userTattoArtists!:Tattoo_artist[]
 }
 
 
