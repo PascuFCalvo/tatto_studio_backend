@@ -54,7 +54,15 @@ Tercer proyecto creado durante la semana 7 y 8 del bootcamp. Creacion de un back
 **instalar express**  
 **instalar typeORM**  
 **instalar postman o la extension de VSCODE Thunderclient**  
-**instalar dotenv**
+**instalar dotenv**  
+
+#### SCRIPTS EN EL PACKAGE JSON
+
+"dev": "nodemon ./src/index.ts",
+    "build": "tsc",
+    "start": "node ./build/index.js",
+    "mig": "npx typeorm-ts-node-commonjs migration:run -d ./database.ts",  => crear las migraciones
+    "rev": "npx typeorm-ts-node-commonjs migration:revert -d ./database.ts" => revertir las migraciones
 
 ejecutar el comando **npm run dev** en el terminal
 
