@@ -27,37 +27,37 @@ const registertattoo = async (req: Request, res: Response) => {
 
     const validationName = validation(user_name, 255);
     if (!validationName) {
-      return res.json({ nessage: `${user_name} not valid` });
+      return res.json({ message: `name ${user_name} not valid` });
     }
 
     const validationLicenseNumber = validation(licenseNumber, 25);
     if (!validationLicenseNumber) {
-      return res.json({ nessage: `${licenseNumber} not valid` });
+      return res.json({ message: `license ${licenseNumber} not valid` });
     }
 
     const validationFormation = validation(formation, 255);
     if (!validationFormation) {
-      return res.json({ nessage: `${formation} not valid` });
+      return res.json({ message: `formation ${formation} not valid` });
     }
 
     const validationLevel = validation(level, 255);
     if (!validationLevel) {
-      return res.json({ nessage: `${level} not valid` });
+      return res.json({ message: `level ${level} not valid` });
     }
 
-    const validationPassword = validation(user_name, 50);
+    const validationPassword = validation(password, 50);
     if (!validationPassword) {
-      return res.json({ nessage: `${password} not valid` });
+      return res.json({ message: `password ${password} not valid` });
     }
 
     const validationEmail = validation(email, 255);
     if (!validationEmail) {
-      return res.json({ nessage: `${email} not valid` });
+      return res.json({ message: `email ${email} not valid` });
     }
 
     const validationPhone = validation(phone, 12);
     if (!validationPhone) {
-      return res.json({ nessage: `${phone} not valid` });
+      return res.json({ message: `phone ${phone} not valid` });
     }
 
     const modifyUSerToTattooArtist = await User.findOneBy({
@@ -98,10 +98,8 @@ const TattooAppointments = async (req: Request, res: Response) => {
   try {
     if (req.token.id === req.body.id) {
 
-      const validationId = validation(req.body.id, 255);
-      if (!validationId) {
-      return res.json({ nessage: `${req.body.id} not valid` });
-    }
+
+    
 
       
 

@@ -104,7 +104,7 @@ localhost:4000/user
 > > AUTH: token tipo bearer obtenido al hacer el login  
 > > BODY
 > >
-> > > En el body es opcional cual campo cambiar  
+> > > 
 > > > {  
 > > > "user_name":"your name",  
 > > > "email":"your mail",  
@@ -145,8 +145,9 @@ localhost:4000/appointment
 > > AUTH: token tipo bearer obtenido al hacer el login  
 > > BODY
 > >
-> > > {  
-> > > "id": appointment_id  
+> > > { 
+      "user_id": "your user id" ,  
+> > > "id": appointment_id  ,
 > > > "title":"your title",  
 > > > "description":"your description",  
 > > > "tattoo_artist": tattoo_artist id  
@@ -162,6 +163,7 @@ localhost:4000/appointment
 > > BODY
 > >
 > > > {  
+  "user_id": your user id  
 > > > “Id”:appointment_id  
 > > > }
 

@@ -24,14 +24,11 @@ const changeLevel = async (req: Request, res: Response) => {
     const idtoChangeLevel = req.body.id
     const levelToChange = req.body.level
 
-    const validationChangeLevel = validation(req.body.id, 255);
-    if (!validationChangeLevel) {
-    return res.json({ nessage: `${req.body.id} not valid` });
-  }
+ 
 
   const validationLevelToChange = validation(req.body.level ,255);
   if (!validationLevelToChange) {
-  return res.json({ nessage: `${req.body.level} not valid` });
+  return res.json({ message: `level ${req.body.level} not valid` });
 }
 
     await User.update({ id: idtoChangeLevel }, levelToChange);
@@ -52,11 +49,7 @@ const deleteUser = async (req: Request, res: Response) => {
   try {
     const idtoDelete = req.body.id
 
-    const validationDeleteUser = validation(req.body.id, 255);
-    if (!validationDeleteUser) {
-    return res.json({ nessage: `${req.body.id} not valid` });
-  }
-
+   
 
     await User.delete({ id: idtoDelete });
 

@@ -18,7 +18,7 @@ const register = async (req: Request, res: Response) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!emailRegex.test(email)) {
-      return res.json({ mensaje: "email format not valid" });
+      return res.json({ message: "email format not valid" });
     }
 
     const encryptedPassword = bcrypt.hashSync(password, 10);
@@ -157,29 +157,29 @@ const update = async (req: Request, res: Response) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!emailRegex.test(req.body.email)) {
-      return res.json({ mensaje: "email format not valid" });
+      return res.json({ message: "email format not valid" });
     }
 
     const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
 
     const validationName = validation(req.body.user_name, 255);
     if (!validationName) {
-      return res.json({ nessage: `${req.body.user_name} not valid` });
+      return res.json({ message: `name ${req.body.user_name} not valid` });
     }
 
     const validationPassword = validation(req.body.password, 50);
     if (!validationPassword) {
-      return res.json({ nessage: `${req.body.password} not valid` });
+      return res.json({ message: `password ${req.body.password} not valid` });
     }
 
     const validationEmail = validation(req.body.email, 255);
     if (!validationEmail) {
-      return res.json({ nessage: `${req.body.email} not valid` });
+      return res.json({ message: `email ${req.body.email} not valid` });
     }
 
     const validationPhone = validation(req.body.phone, 12);
     if (!validationPhone) {
-      return res.json({ nessage: `${req.body.phone} not valid` });
+      return res.json({ message: `phone ${req.body.phone} not valid` });
     }
 
     await User.update({ id: userId }, updatedUserData);
@@ -204,12 +204,7 @@ const myAppointments = async (req: Request, res: Response) => {
     const message = "Your user appointments";
     if (req.token.id === req.body.id) {
       const userId = req.body.id;
-
-      const validationId = validation(userId, 255);
-      if (!validationId) {
-        return res.json({ nessage: `${userId} not valid` });
-      }
-
+     
       //paginacion
 
       const pageSize: any = parseInt(req.query.skip as string) || 5;

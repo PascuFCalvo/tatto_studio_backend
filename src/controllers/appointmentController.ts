@@ -66,28 +66,49 @@ const create = async (req: Request, res: Response) => {
 };
 const update = async (req: Request, res: Response) => {
   try {
-    const appointmentToUpdate = req.body.id;
-    const updatedAppointment = req.body;
-    const messageReturn = "Appointment updated succesfully";
+    if (req.token.id === req.body.user_id) {
+      console.log("entra");
 
-    if (req.body.appointment_date)
+      const appointmentToUpdate = req.body.id;
+
+      const messageReturn = "Appointment updated succesfully";
+
+      const id = req.body.id;
+      const title = req.body.title;
+      const description = req.body.description;
+      const tattoo_artist = req.body.tattoo_artist;
+      const client = req.body.cliente;
+      const type = req.body.type;
+      const date = req.body.date;
+      const turn = req.body.turn;
+
       await Appointment.update(
         {
           id: parseInt(appointmentToUpdate),
         },
-        updatedAppointment
+        {
+          id: id,
+          title: title,
+          description: description,
+          tattoo_artist: tattoo_artist,
+          client: client,
+          type: type,
+          appointment_date:date,
+          appointment_turn:turn
+        }
       );
 
-    const updatedUser = await Appointment.findOneBy({
-      id: parseInt(appointmentToUpdate),
-    });
+      const updatedAppointment = await Appointment.findOneBy({
+        id: parseInt(appointmentToUpdate),
+      });
 
-    const response = {
-      message: messageReturn,
-      updatedUser,
-    };
+      const response = {
+        message: messageReturn,
+        updatedAppointment,
+      };
 
-    return res.json(response);
+      return res.json(response);
+    }
   } catch (error) {
     return res.json(error);
   }
@@ -95,25 +116,31 @@ const update = async (req: Request, res: Response) => {
 
 const deleteAppointment = async (req: Request, res: Response) => {
   try {
-    const appointmentId = req.body.id;
-    const messageReturn = "Appointment deleted";
+    if (req.token.id === req.body.user_id) {
+      const appointmentId = req.body.id;
+      const messageReturn = "Appointment deleted";
 
-    const appointmentToRemove = await Appointment.findOneBy({
-      id: parseInt(appointmentId),
-    });
+      const appointmentToRemove = await Appointment.findOneBy({
+        id: parseInt(appointmentId),
+      });
 
-    if (!appointmentToRemove) {
-      return res.status(404).json({ message: "Appointment not found" });
-    }
+      if (!appointmentToRemove) {
+        return res.status(404).json({ message: "Appointment not found" });
+      }
 
-    await Appointment.delete(appointmentId);
+      if (appointmentToRemove.client === req.body.user_id){
+      await Appointment.delete(appointmentId);
 
-    const response = {
-      message: messageReturn,
-      appointmentRemoved: appointmentToRemove,
-    };
+      const response = {
+        message: messageReturn,
+        appointmentRemoved: appointmentToRemove,
+      };
 
-    return res.json(response);
+      return res.json(response);
+    }  
+      }
+
+      
   } catch (error) {
     return res.status(500).json({ error });
   }

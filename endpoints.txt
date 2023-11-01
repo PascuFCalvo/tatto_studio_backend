@@ -1,27 +1,101 @@
-el email de los usuarios siempre va a ser <nombre>@<nombre>.como
-la contraseña siempre es el <nombre>
+crear usuarios - funciona
+
+{
+"user_name":"goku",
+"email":"goku@goku.com",
+"password":"goku",
+"phone":"666666666"
+}
+	  
+
+login usuarios - funciona
+
+{
+
+"email":"goku@goku.com",
+"password":"goku"
+}
+
+profile - funciona
+
+auth -> token
+no hace falta nada por el body.
+
+modificar datos - funciona
+
+auth -> token
+{
+"user_name":"goku",
+"email":"goku@saiyan.com",
+"password":"goku",
+"phone":"666666666"
+}
+
+crear citas - funciona
+
+auth -> token
+{
+"title":"calavera",
+"description":"calavera",
+"tattoo_artist":5,
+"client":16,
+"type":"tattoo",
+"date":"2023/12/31",
+"turn":"morning"
+}
+
+listar tatuadores - funciona
+
+es publico 
+
+listar todos los usuarios - funciona
+
+token de superadmin
+
+crear tatuadores - funciona
+
+token de superadmin
+
+{
+"user_id":2,
+"user_name":"alice",
+"email":"alice@alice.com",
+"password":"pascu",
+"level":"tattoo",
+"phone":"666666666",
+"licenseNumber":"666",
+"formation": "curso de jeringas"
 
 
-Resumen endpoints:
+}
 
-localhost:4000/user
-					/register 	 	post,	crear usuarios
-					/login			post,	logear usuarios
-					/profile		get,	obtener el perfil    	
-					/udpate			put,	modificar un usuario
-					/myAppointments	get,	obtener las citas
-					
-localhost:4000/appointment
-					/create			post, 	crear citas
-					/update			put, 	modificar citas
-					/delete			delete, eliminar citas
-					
-localhost:4000/tatto_artist
-					/register		post, 	crear usuarios (solo por el blackAlien)
-					/myAppointments	get, 	ver tus citas como tauador (solo para tatuadores)
-					
-localhost:4000/public
-					/tattoArtists 	get,	ver los tatuadores del estudio (ruta publica a todo el mundo)
-					
-localhost:4000/blackAlien
-					/getUsers		get,	ver todos los usuarios (solo para el blackAlien)
+borrar un usuario - funciona
+
+token de superadmin
+{
+"id":18
+}
+
+
+actualizar una cita - funciona
+
+token de usuario
+{
+"user_id":14,
+"id":23,
+"title":"tatto tradicional",
+"description":"un aguila!",
+"tattoo_artist":4,
+"client":14,
+"type":"tattoo"
+
+
+}
+
+
+eliminar una cita - funciona
+token de usuario
+{
+  "user_id":14,
+  "id":29
+}
