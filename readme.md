@@ -1,7 +1,7 @@
 <h1 align="center"> BACKEND PARA MATASUEGRAS TATTOO</h1>
 ​
 ​
-<p align="center">Proyecto 4 - Bakend para tattoo shop- Semana 5-6</p>
+<p align="center">Proyecto 4 - Bakend para tattoo shop- Semana 7-8</p>
 ​
 <p align="center">Proyecto de creacion de una api rest para un estudio de tatuajes por Pascual Fernandez.
 <br>
@@ -42,7 +42,7 @@ Desarrollada como formacion del Bootcamp de Full Stack Developer de Geekshubs Ac
 ### Descripción
 
 ​
-Tercer proyecto creado durante la semana 5 y 6 del bootcamp. Creacion de un backend y una API REST para un estudio de tatuajes, centrado en aprender a manejar tablas, migraciones, endpoints...
+Tercer proyecto creado durante la semana 7 y 8 del bootcamp. Creacion de un backend y una API REST para un estudio de tatuajes, centrado en aprender a manejar tablas, migraciones, endpoints...
 
 ## Esquema de la BBDD:
 
@@ -252,4 +252,4 @@ A toda esos heroes anonimos que suben trocitos de codigo a internet y hace la vi
 ### Licencia y copyright
 
 📝 La licencia utilizada es una MIT License.
-Este proyecto ha sido realizado pixel a pixel por mi, Pascual Fernandez, para completar la sexta semana del BootCamp Full Stack de GeeksHubs Academy Valencia.
+Este proyecto ha sido realizado pixel a pixel por mi, Pascual Fernandez, para completar la octava semana del BootCamp Full Stack de GeeksHubs Academy Valencia.
