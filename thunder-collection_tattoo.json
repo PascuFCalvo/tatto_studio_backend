@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "tattoo",
-    "dateExported": "2023-10-29T11:09:39.737Z",
+    "dateExported": "2023-11-01T17:11:20.205Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -10,16 +10,16 @@
             "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
             "containerId": "",
             "name": "register a user",
-            "url": "localhost:4000/user/myAppointments",
-            "method": "GET",
+            "url": "localhost:4000/user/register",
+            "method": "POST",
             "sortNum": 10000,
             "created": "2023-10-25T18:16:18.151Z",
-            "modified": "2023-10-28T16:19:37.971Z",
+            "modified": "2023-11-01T10:00:31.047Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n      \"id\":2\n  \n}",
+                "raw": "\n       \n    {\n      \"user_name\":\"vegeta\",\n      \"email\":\"vegeta@vegeta.com\",\n      \"password\":\"vegeta\",\n      \"phone\":\"666666666\"\n      }\n  \n",
                 "form": []
             },
             "auth": {
@@ -37,17 +37,13 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-10-25T18:17:47.945Z",
-            "modified": "2023-10-29T10:26:12.823Z",
+            "modified": "2023-11-01T10:09:22.658Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "\n  {\n  \n    \"email\":\"black@black.com\",\n    \"password\":\"black\"\n      }\n",
+                "raw": "\n  {\n  \n    \"email\":\"frank@frank.com\",\n    \"password\":\"pascu\"\n  }\n",
                 "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODUwOTg1MiwiZXhwIjoxNjk4NzY5MDUyfQ.GCSY3feVSiSc5XUMlKsWHej56UQCtXPIvfgcP6SnoaA"
             },
             "tests": []
         },
@@ -60,17 +56,12 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-10-25T19:16:58.071Z",
-            "modified": "2023-10-28T16:06:40.371Z",
+            "modified": "2023-11-01T09:20:15.809Z",
             "headers": [],
             "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"email\":\"dewis@consin.com\",\n  \"password\":\"dewis\"\n}",
-                "form": []
-            },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUwOTEwOCwiZXhwIjoxNjk4NzY4MzA4fQ.J0pZfGuD1QFOF48OA_QACC6e0O0jHYjzEuqWLbIubkM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInVzZXJfbmFtZSI6Imdva3UiLCJlbWFpbCI6Imdva3VAZ29rdS5jb20iLCJwaG9uZSI6IjY2NjY2NjY2NiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODgzMDI4NywiZXhwIjoxNjk5MDg5NDg3fQ.X_CF-LTRKRt2OJRzzmipm6iURbHpfPqKuIGwGtf90RE"
             },
             "tests": []
         },
@@ -83,17 +74,95 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2023-10-26T13:13:01.794Z",
-            "modified": "2023-10-26T14:19:57.816Z",
+            "modified": "2023-11-01T09:21:52.557Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n   \"email\":\"lululu@emma.com\",\n  \"password\":\"lalala\"\n}",
+                "raw": " {\n      \"user_name\":\"goku\",\n      \"email\":\"goku@saiyan.com\",\n      \"password\":\"goku\",\n      \"phone\":\"666666666\"\n      }",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcl9uYW1lIjoibGFsYWxhbCIsImVtYWlsIjoibGFsYWxhQGVtbWEuY29tIiwicGhvbmUiOiI2MTExMTExMTEiLCJsZXZlbCI6InVzZXIiLCJpYXQiOjE2OTgzMjk5NTMsImV4cCI6MTY5ODU4OTE1M30.8k2aKqlzJzLSiPU__pEleJ2B8YkhaAX1BFyFevy2bYw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInVzZXJfbmFtZSI6Imdva3UiLCJlbWFpbCI6Imdva3VAZ29rdS5jb20iLCJwaG9uZSI6IjY2NjY2NjY2NiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODgzMDI4NywiZXhwIjoxNjk5MDg5NDg3fQ.X_CF-LTRKRt2OJRzzmipm6iURbHpfPqKuIGwGtf90RE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f4c8452-d799-4955-86c5-942b295f002e",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "update an appointment",
+            "url": "localhost:4000/appointments/update",
+            "method": "PUT",
+            "sortNum": 42500,
+            "created": "2023-10-28T08:19:44.603Z",
+            "modified": "2023-11-01T10:01:10.235Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"user_id\":14,\n      \"id\":23,\n      \"title\":\"tatto tradicional\",\n      \"description\":\"un aguila!\",\n      \"tattoo_artist\":4,\n      \"client\":14,\n      \"type\":\"tattoo\"\n      \n     \n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJfbmFtZSI6ImZyYW5rIiwiZW1haWwiOiJmcmFua0BmcmFuay5jb20iLCJwaG9uZSI6IjY2NjY2NjY2NiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODgzMTc0OSwiZXhwIjoxNjk5MDkwOTQ5fQ.4UPRkNk0-RDq_pokUtq29yzjRCrFBHBAsZcdpjYs_S0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "58b51956-6c15-4a31-88f2-5fcce4f52f94",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "create an appointment",
+            "url": "localhost:4000/appointments/create",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2023-10-28T08:08:48.348Z",
+            "modified": "2023-11-01T16:56:50.929Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"title\":\"calavera\",\n      \"description\":\"calavera\",\n      \"tattoo_artist\":4,\n      \"client\":14,\n      \"type\":\"tattoo\",\n      \"date\":\"2023/12/27\",\n      \"turn\":\"evening\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJfbmFtZSI6ImZyYW5rIiwiZW1haWwiOiJmcmFua0BmcmFuay5jb20iLCJwaG9uZSI6IjY2NjY2NjY2NiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODg1NzQ5NiwiZXhwIjoxNjk5MTE2Njk2fQ.BALkLXq0PS4qQ_optfYZzKJ4nnPqyvRPbqHC-g4C7yQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab532ee1-4d83-4102-9b30-6190257178ba",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "traerme todos los tatuadores",
+            "url": "localhost:4000/public/tattooArtists",
+            "method": "GET",
+            "sortNum": 47500,
+            "created": "2023-10-31T15:12:55.122Z",
+            "modified": "2023-10-31T15:16:13.040Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2a3f0237-1a09-482f-926b-ceb9953c92d7",
+            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
+            "containerId": "",
+            "name": "get all users as a superadmin (black_alien)",
+            "url": "localhost:4000/blackAlien/getUsers",
+            "method": "GET",
+            "sortNum": 48750,
+            "created": "2023-10-28T10:38:39.511Z",
+            "modified": "2023-11-01T09:28:38.189Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODgzMDkwOCwiZXhwIjoxNjk5MDkwMTA4fQ.SrEyUpNz_qbHHP0FmaSw4_F2zpXdI8S5UCGwygLOFp4"
             },
             "tests": []
         },
@@ -106,63 +175,40 @@
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-10-28T07:41:34.358Z",
-            "modified": "2023-10-28T08:57:18.440Z",
+            "modified": "2023-10-31T15:45:22.480Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "\n    \n    {\n      \"user_id\":6,\n      \"user_name\":\"DonRogelio\",\n      \"email\":\"donrogelio@donrogelio.com\",\n      \"password\":\"donrogelio\",\n      \"phone\":\"666666666\",\n      \"licenseNumber\":\"666\",\n      \"formation\": \"curso de jeringas\"\n      \n      \n    }",
+                "raw": "\n    \n    {\n      \"user_id\":2,\n      \"user_name\":\"alice\",\n      \"email\":\"alice@alice.com\",\n      \"password\":\"pascu\",\n      \"level\":\"tattoo\",\n      \"phone\":\"666666666\",\n      \"licenseNumber\":\"666\",\n      \"formation\": \"curso de jeringas\"\n      \n      \n    }",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODQ4MjI5NCwiZXhwIjoxNjk4NzQxNDk0fQ.5TAjXcYDkGrnXgrlbHmoIA0hH2UCiPvrLB2mnymZBGE"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODc2NjI3MCwiZXhwIjoxNjk5MDI1NDcwfQ.zv9DgraOWKhdz4XbQLTWM8uru7lrexULUrJE9GZRW-M"
             },
             "tests": []
         },
         {
-            "_id": "58b51956-6c15-4a31-88f2-5fcce4f52f94",
+            "_id": "acf9c494-6d65-461f-a08a-6dd3fe8fa523",
             "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
             "containerId": "",
-            "name": "create an appointment",
-            "url": "localhost:4000/appointments/create",
-            "method": "POST",
+            "name": "delete a user",
+            "url": "localhost:4000/blackAlien/deleteuser",
+            "method": "DELETE",
             "sortNum": 60000,
-            "created": "2023-10-28T08:08:48.348Z",
-            "modified": "2023-10-29T09:14:10.401Z",
+            "created": "2023-10-29T10:26:44.618Z",
+            "modified": "2023-11-01T09:30:14.651Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n      \"title\":\"black tatto0\",\n      \"description\":\"una calavera\",\n      \"tattoo_artist\":4,\n      \"client\":2,\n      \"type\":\"tattoo\",\n      \"date\":\"2023/10/12\",\n      \"turn\":\"EveninG\"\n}\n",
+                "raw": "{\n  \"id\":18\n  \n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ3OTE1OSwiZXhwIjoxNjk4NzM4MzU5fQ.3Zr482G7AYuM0R51kjfZ0K07P707Tp6hZrxY5bUAGGQ"
-            },
-            "tests": []
-        },
-        {
-            "_id": "1f4c8452-d799-4955-86c5-942b295f002e",
-            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
-            "containerId": "",
-            "name": "update an appointment",
-            "url": "localhost:4000/appointments/update",
-            "method": "PUT",
-            "sortNum": 70000,
-            "created": "2023-10-28T08:19:44.603Z",
-            "modified": "2023-10-29T09:08:21.537Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n     \n      \"id\":5,\n      \"title\":\"tatto tradicional\",\n      \"description\":\"ssssssss\",\n      \"tattoo_artist\":4,\n      \"client\":4,\n      \"type\":\"tattoo\"\n      \n     \n}\n",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ3OTE1OSwiZXhwIjoxNjk4NzM4MzU5fQ.3Zr482G7AYuM0R51kjfZ0K07P707Tp6hZrxY5bUAGGQ"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODU3NTE3MiwiZXhwIjoxNjk4ODM0MzcyfQ.Soj_GZN8mF-Pg-g2j1o1Qb3pF4HMk0-vsdkkrZrc6hc"
             },
             "tests": []
         },
@@ -175,17 +221,17 @@
             "method": "GET",
             "sortNum": 80000,
             "created": "2023-10-28T08:56:23.229Z",
-            "modified": "2023-10-28T08:56:23.229Z",
+            "modified": "2023-10-31T15:03:30.046Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\r\n      \"id\":2\r\n  \r\n}",
+                "raw": "{\n      \"id\":12\n  \n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9uYW1lIjoiRGV3aXMgQ29uc2luIiwiZW1haWwiOiJkZXdpc0BkZXdpcy5jb20iLCJwaG9uZSI6IjYyMjIyMjIyMiIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODQ4MzIyNCwiZXhwIjoxNjk4NzQyNDI0fQ.OdbDR79RGMOYIAbwI7DxQK6Imwt9RP6iu43bwZh64yc"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInVzZXJfbmFtZSI6ImRhdmlkIiwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJwaG9uZSI6IjQ0NDQ0NDQ0NCIsImxldmVsIjoidXNlciIsImlhdCI6MTY5ODc2NDUyMywiZXhwIjoxNjk5MDIzNzIzfQ.pyVsLTR-jf7EWjBhLE6kaOt_POwukai2LEMsZ7b_Usw"
             },
             "tests": []
         },
@@ -198,35 +244,17 @@
             "method": "GET",
             "sortNum": 90000,
             "created": "2023-10-28T10:00:00.834Z",
-            "modified": "2023-10-29T07:41:14.449Z",
+            "modified": "2023-10-31T16:01:21.935Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\":6,\n  \"tattoo_artist_id\":4\n}",
+                "raw": "{\n  \"id\":1,\n  \"tattoo_artist_id\":2\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcl9uYW1lIjoiRG9uUm9nZWxpbyIsImVtYWlsIjoiZG9ucm9nZWxpb0Bkb25yb2dlbGlvLmNvbSIsInBob25lIjoiNjMzMjIyMjIyIiwibGV2ZWwiOiJ0YXR0b28iLCJpYXQiOjE2OTg1NjUyNjAsImV4cCI6MTY5ODgyNDQ2MH0.Pry83ui3zEccxs7LdMjLh5-YeKK-QDiApiCmbtcZWVk"
-            },
-            "tests": []
-        },
-        {
-            "_id": "2a3f0237-1a09-482f-926b-ceb9953c92d7",
-            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
-            "containerId": "",
-            "name": "get all users as a superadmin (black_alien)",
-            "url": "localhost:4000/blackAlien/getUsers",
-            "method": "GET",
-            "sortNum": 100000,
-            "created": "2023-10-28T10:38:39.511Z",
-            "modified": "2023-10-28T16:54:53.433Z",
-            "headers": [],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUxMjAzMywiZXhwIjoxNjk4NzcxMjMzfQ.flzor-SK-3UttiQ-1bOGqgXSYWXnjXkSoEeazEEo2R4"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODc2NjI3MCwiZXhwIjoxNjk5MDI1NDcwfQ.zv9DgraOWKhdz4XbQLTWM8uru7lrexULUrJE9GZRW-M"
             },
             "tests": []
         },
@@ -250,29 +278,6 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODUxMjAzMywiZXhwIjoxNjk4NzcxMjMzfQ.flzor-SK-3UttiQ-1bOGqgXSYWXnjXkSoEeazEEo2R4"
-            },
-            "tests": []
-        },
-        {
-            "_id": "acf9c494-6d65-461f-a08a-6dd3fe8fa523",
-            "colId": "b8af84cc-2c98-4b97-827f-751b75cd6934",
-            "containerId": "",
-            "name": "delete a user",
-            "url": "localhost:4000/blackAlien/deleteuser",
-            "method": "DELETE",
-            "sortNum": 120000,
-            "created": "2023-10-29T10:26:44.618Z",
-            "modified": "2023-10-29T10:26:44.618Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"id\":7\n  \n}",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcl9uYW1lIjoiQmxhY2sgQWxpZW4iLCJlbWFpbCI6ImJsYWNrQGJsYWNrLmNvbSIsInBob25lIjoiNjY2NjY2NjY2IiwibGV2ZWwiOiJibGFja19hbGllbiIsImlhdCI6MTY5ODU3NTE3MiwiZXhwIjoxNjk4ODM0MzcyfQ.Soj_GZN8mF-Pg-g2j1o1Qb3pF4HMk0-vsdkkrZrc6hc"
             },
             "tests": []
         },

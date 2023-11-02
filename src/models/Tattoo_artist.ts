@@ -41,7 +41,7 @@ export class Tattoo_artist extends BaseEntity {
   @OneToMany(() => Appointment, (appointment)=>appointment.tattoArtistAppointment)
   tattooArtistAppointments!:Appointment[]
 
-  @ManyToMany(() => Tattoo_artist)
+  @ManyToMany(() => User)
   @JoinTable({
      name: "appointments",
      joinColumn: {

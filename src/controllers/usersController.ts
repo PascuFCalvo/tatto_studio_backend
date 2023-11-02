@@ -240,6 +240,7 @@ const myAppointments = async (req: Request, res: Response) => {
         appointment_date: appointment.appointment_date,
         appointment_turn: appointment.appointment_turn,
         Tattoo_artist: appointment.tattoArtistAppointment.user_name,
+        Client: appointment.userAppointment.user_name,
       }));
 
       const response = {
