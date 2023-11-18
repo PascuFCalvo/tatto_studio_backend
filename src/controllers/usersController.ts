@@ -151,7 +151,7 @@ const profile = async (req: Request, res: Response) => {
 const update = async (req: Request, res: Response) => {
   try {
     const updatedUserData = req.body;
-    const userId = req.token.id;
+    const userId = req.body.id;
     const message = "Usuario actualizado correctamente";
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -162,26 +162,26 @@ const update = async (req: Request, res: Response) => {
 
     const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
 
-    const validationName = validation(req.body.user_name, 255);
-    if (!validationName) {
-      return res.json({ message: `name ${req.body.user_name} not valid` });
-    }
+    // const validationName = validation(req.body.user_name, 255);
+    // if (!validationName) {
+    //   return res.json({ message: `name ${req.body.user_name} not valid` });
+    // }
 
-    const validationPassword = validation(req.body.password, 50);
-    if (!validationPassword) {
-      return res.json({ message: `password ${req.body.password} not valid` });
-    }
+    // const validationPassword = validation(req.body.password, 50);
+    // if (!validationPassword) {
+    //   return res.json({ message: `password ${req.body.password} not valid` });
+    // }
 
-    const validationEmail = validation(req.body.email, 255);
-    if (!validationEmail) {
-      return res.json({ message: `email ${req.body.email} not valid` });
-    }
+    // const validationEmail = validation(req.body.email, 255);
+    // if (!validationEmail) {
+    //   return res.json({ message: `email ${req.body.email} not valid` });
+    // }
 
-    const validationPhone = validation(req.body.phone, 12);
-    if (!validationPhone) {
-      return res.json({ message: `phone ${req.body.phone} not valid` });
-    }
-
+    // const validationPhone = validation(req.body.phone, 12);
+    // if (!validationPhone) {
+    //   return res.json({ message: `phone ${req.body.phone} not valid` });
+    // }
+    
     await User.update({ id: userId }, updatedUserData);
 
     const updatedUser = await User.findOneBy({ id: userId });
@@ -202,7 +202,7 @@ const update = async (req: Request, res: Response) => {
 const myAppointments = async (req: Request, res: Response) => {
   try {
     const message = "Your user appointments";
-    if (req.token.id === req.body.id) {
+    
       const userId = req.body.id;
      
       //paginacion
@@ -250,7 +250,7 @@ const myAppointments = async (req: Request, res: Response) => {
 
       return res.json(response);
     }
-  } catch (error: any) {
+   catch (error: any) {
     return res.status(500).json({ error: error.message });
   }
 };

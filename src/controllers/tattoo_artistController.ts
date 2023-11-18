@@ -98,11 +98,6 @@ const TattooAppointments = async (req: Request, res: Response) => {
   try {
     if (req.token.id === req.body.id) {
 
-
-    
-
-      
-
       const tattooArtistId = req.body.tattoo_artist_id;
       const pageSize: any = parseInt(req.query.skip as string) || 5;
       const page: any = parseInt(req.query.skip as string) || 1;

@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import "dotenv/config"
 
 import { router as routerPublic} from "./routes/publicRoutes"
@@ -11,6 +12,7 @@ import { AppDataSource } from "../database";
 const app = express()
 
 app.use(express.json())
+app.use(cors());
 
 const PORT = process.env.PORT || 4000
 

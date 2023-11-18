@@ -7,9 +7,9 @@ import { create, deleteAppointment, update } from "../controllers/appointmentCon
 
 const router = Router()
 
-
-router.post('/create',auth, create)
-router.put('/update',auth, update)
-router.delete('/delete',auth, deleteAppointment)
+//quito el middleware de auth para probar crear citas
+router.post('/create', create)
+router.put('/update', update)
+router.delete('/delete', deleteAppointment)
 
 export { router }

@@ -12,6 +12,6 @@ const router = Router()
 
 
 router.post('/register',auth,isBlackAlien, registertattoo)
-router.get('/myAppointments',auth,isTattooArtist, TattooAppointments)
+router.get('/myAppointments',TattooAppointments)
 
 export { router }

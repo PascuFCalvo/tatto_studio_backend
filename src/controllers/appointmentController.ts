@@ -5,7 +5,8 @@ import {} from "dayjs";
 const create = async (req: Request, res: Response) => {
   try {
 
-    if (req.token.id === req.body.client) {const title = req.body.title;
+    // if (req.token.id === req.body.client) 
+    {const title = req.body.title;
     const description = req.body.description;
     const tattoo_artist = req.body.tattoo_artist;
     const client = req.body.client;
@@ -68,7 +69,7 @@ const create = async (req: Request, res: Response) => {
 };
 const update = async (req: Request, res: Response) => {
   try {
-    if (req.token.id === req.body.user_id) {
+     
       console.log("entra");
 
       const appointmentToUpdate = req.body.id;
@@ -111,16 +112,18 @@ const update = async (req: Request, res: Response) => {
 
       return res.json(response);
     }
-  } catch (error) {
+   catch (error) {
     return res.json(error);
   }
 };
 
 const deleteAppointment = async (req: Request, res: Response) => {
   try {
-    if (req.token.id === req.body.user_id) {
-      const appointmentId = req.body.id;
+     
+      const appointmentId = req.params.id;
       const messageReturn = "Appointment deleted";
+
+      console.log("y aqui llegamos o que?????", req)
 
       const appointmentToRemove = await Appointment.findOneBy({
         id: parseInt(appointmentId),
@@ -130,7 +133,7 @@ const deleteAppointment = async (req: Request, res: Response) => {
         return res.status(404).json({ message: "Appointment not found" });
       }
 
-      if (appointmentToRemove.client === req.body.user_id){
+      
       await Appointment.delete(appointmentId);
 
       const response = {
@@ -139,11 +142,12 @@ const deleteAppointment = async (req: Request, res: Response) => {
       };
 
       return res.json(response);
-    }  
-      }
+    
+      
 
       
   } catch (error) {
+    console.error(error)
     return res.status(500).json({ error });
   }
 };

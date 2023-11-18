@@ -1,6 +1,7 @@
 import { Response, Request } from "express";
 import { User } from "../models/User";
 import { validation } from "../validations/validations";
+import { Appointment } from "../models/Appointment";
 
 
 const getUsers = async (req: Request, res: Response) => {
@@ -17,6 +18,30 @@ const getUsers = async (req: Request, res: Response) => {
       message: "Cant retrieve user list",
     });
   }
+};
+
+const getAppointments = async (req: Request, res: Response) => {
+  try {
+    const message ="hola"
+    const myAppointments = await Appointment.find({
+  
+    relations: {
+      userAppointment: true,
+      tattoArtistAppointment: true,
+    },
+
+  });
+
+  const response = {
+    message: message,
+    myAppointments: myAppointments,
+  };
+
+  return res.json(response);
+}
+catch (error: any) {
+return res.status(500).json({ error: error.message });
+}
 };
 
 const changeLevel = async (req: Request, res: Response) => {
@@ -47,10 +72,11 @@ const changeLevel = async (req: Request, res: Response) => {
 
 const deleteUser = async (req: Request, res: Response) => {
   try {
+
     const idtoDelete = req.body.id
 
    
-
+    console.log("que bien se come aqui", idtoDelete)
     await User.delete({ id: idtoDelete });
 
     return res.json({
@@ -62,4 +88,4 @@ const deleteUser = async (req: Request, res: Response) => {
     
   }
 }
-export { getUsers , changeLevel, deleteUser};
+export { getUsers , changeLevel, deleteUser, getAppointments};

@@ -8,6 +8,8 @@ const getArtists = async (req: Request, res: Response) => {
       select: {
         id: true,
         user_name: true,
+        phone:true,
+        email:true,
         formation:true,
         licenseNumber:true,
       
