@@ -76,7 +76,7 @@ const deleteUser = async (req: Request, res: Response) => {
     const idtoDelete = req.body.id
 
    
-    console.log("que bien se come aqui", idtoDelete)
+    
     await User.delete({ id: idtoDelete });
 
     return res.json({

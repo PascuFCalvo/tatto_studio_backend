@@ -120,25 +120,23 @@ const update = async (req: Request, res: Response) => {
 const deleteAppointment = async (req: Request, res: Response) => {
   try {
      
-      const appointmentId = req.params.id;
+      const appointmentId = req.body.id;
       const messageReturn = "Appointment deleted";
 
-      console.log("y aqui llegamos o que?????", req)
+      console.log("y aqui llegamos o que?????", appointmentId)
 
-      const appointmentToRemove = await Appointment.findOneBy({
-        id: parseInt(appointmentId),
-      });
+      // const appointmentToRemove = await Appointment.findOneBy({ id: appointmentId });
 
-      if (!appointmentToRemove) {
-        return res.status(404).json({ message: "Appointment not found" });
-      }
+      // if (!appointmentToRemove) {
+      //   return res.status(404).json({ message: "Appointment not found" });
+      // }
 
       
-      await Appointment.delete(appointmentId);
+      await Appointment.delete({ id: appointmentId });
 
       const response = {
         message: messageReturn,
-        appointmentRemoved: appointmentToRemove,
+        appointmentRemoved: appointmentId,
       };
 
       return res.json(response);
