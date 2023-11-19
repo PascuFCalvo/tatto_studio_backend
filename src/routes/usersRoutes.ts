@@ -10,8 +10,8 @@ const router = Router()
 router.get('/profile', auth, profile)
 router.post('/register', register)
 router.post('/login', login)
-router.put('/update',update)
-router.get('/myAppointments', myAppointments)
+router.put('/update',auth, update)
+router.get('/myAppointments',auth, myAppointments)
 
 
 export { router }

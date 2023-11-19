@@ -149,18 +149,19 @@ const profile = async (req: Request, res: Response) => {
   }
 };
 const update = async (req: Request, res: Response) => {
+  
   try {
     const updatedUserData = req.body;
     const userId = req.body.id;
     const message = "Usuario actualizado correctamente";
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    // const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    if (!emailRegex.test(req.body.email)) {
-      return res.json({ message: "email format not valid" });
-    }
+    // if (!emailRegex.test(req.body.email)) {
+    //   return res.json({ message: "email format not valid" });
+    // }
 
-    const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
+    // const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
 
     // const validationName = validation(req.body.user_name, 255);
     // if (!validationName) {
@@ -189,7 +190,7 @@ const update = async (req: Request, res: Response) => {
     const response = {
       message,
       user: updatedUser,
-      password: encryptedPassword,
+      
     };
 
     return res.json(response);

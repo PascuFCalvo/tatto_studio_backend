@@ -76,6 +76,7 @@ export class CreateTableTattooArtists1698248971658 implements MigrationInterface
                 referencedTableName: "users",
                 referencedColumnNames: ["id"],
                 onDelete: "CASCADE",
+                onUpdate: "CASCADE"
               },
             ]
             

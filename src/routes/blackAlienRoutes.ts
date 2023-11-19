@@ -5,9 +5,9 @@ import { auth } from "../middlewares/auth";
 
 const router = Router();
 
-router.get("/getUsers", getUsers);
+router.get("/getUsers",auth, getUsers);
 router.get("/getAppointments",auth, getAppointments);
 router.put("/changelevel",changeLevel);
-router.delete("/deleteuser", deleteUser);
+router.delete("/deleteuser",auth, deleteUser);
 
 export { router };

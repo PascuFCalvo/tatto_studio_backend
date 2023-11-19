@@ -1,6 +1,7 @@
 import { Response, Request } from "express";
 import { Appointment } from "../models/Appointment";
 import {} from "dayjs";
+import { myAppointments } from "./usersController";
 
 const create = async (req: Request, res: Response) => {
   try {
@@ -79,11 +80,11 @@ const update = async (req: Request, res: Response) => {
       const id = req.body.id;
       const title = req.body.title;
       const description = req.body.description;
-      const tattoo_artist = req.body.tattoo_artist;
-      const client = req.body.cliente;
-      const type = req.body.type;
-      const date = req.body.date;
-      const turn = req.body.turn;
+      // const tattoo_artist = req.body.tattoo_artist;
+      // const client = req.body.cliente;
+      // const type = req.body.type;
+      // const date = req.body.date;
+      // const turn = req.body.turn;
 
       await Appointment.update(
         {
@@ -93,11 +94,11 @@ const update = async (req: Request, res: Response) => {
           id: id,
           title: title,
           description: description,
-          tattoo_artist: tattoo_artist,
-          client: client,
-          type: type,
-          appointment_date:date,
-          appointment_turn:turn
+          // tattoo_artist: tattoo_artist,
+          // client: client,
+          // type: type,
+          // appointment_date:date,
+          // appointment_turn:turn
         }
       );
 
@@ -119,34 +120,23 @@ const update = async (req: Request, res: Response) => {
 
 const deleteAppointment = async (req: Request, res: Response) => {
   try {
-     
-      const appointmentId = req.body.id;
-      const messageReturn = "Appointment deleted";
-
-      console.log("y aqui llegamos o que?????", appointmentId)
-
-      // const appointmentToRemove = await Appointment.findOneBy({ id: appointmentId });
-
-      // if (!appointmentToRemove) {
-      //   return res.status(404).json({ message: "Appointment not found" });
-      // }
-
-      
-      await Appointment.delete({ id: appointmentId });
-
-      const response = {
-        message: messageReturn,
-        appointmentRemoved: appointmentId,
-      };
-
-      return res.json(response);
     
-      
+    console.log(req.body)
+    const idtoDelete = req.body.id
 
-      
+    await Appointment.delete(idtoDelete );
+
+    return res.json({
+      message: "Se ha borrado la cita", idtoDelete
+    })
+
+
   } catch (error) {
-    console.error(error)
-    return res.status(500).json({ error });
+    // Handle the error appropriately, e.g., log it or send an error response
+    console.error("Error deleting appointment:", error);
+    return res.status(500).json({
+      error: "Error deleting appointment",
+    });
   }
 };
 

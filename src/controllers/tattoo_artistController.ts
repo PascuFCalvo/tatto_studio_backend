@@ -142,4 +142,57 @@ const TattooAppointments = async (req: Request, res: Response) => {
   }
 };
 
-export { registertattoo, TattooAppointments };
+const update = async (req: Request, res: Response) => {
+  
+  try {
+    const updatedTattooData = req.body;
+    const TattooId = req.body.id;
+    const message = "Tatuador actualizado";
+
+    // const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    // if (!emailRegex.test(req.body.email)) {
+    //   return res.json({ message: "email format not valid" });
+    // }
+
+    // const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
+
+    // const validationName = validation(req.body.user_name, 255);
+    // if (!validationName) {
+    //   return res.json({ message: `name ${req.body.user_name} not valid` });
+    // }
+
+    // const validationPassword = validation(req.body.password, 50);
+    // if (!validationPassword) {
+    //   return res.json({ message: `password ${req.body.password} not valid` });
+    // }
+
+    // const validationEmail = validation(req.body.email, 255);
+    // if (!validationEmail) {
+    //   return res.json({ message: `email ${req.body.email} not valid` });
+    // }
+
+    // const validationPhone = validation(req.body.phone, 12);
+    // if (!validationPhone) {
+    //   return res.json({ message: `phone ${req.body.phone} not valid` });
+    // }
+    
+    await Tattoo_artist.update({ id: TattooId }, updatedTattooData);
+
+    const updatedTattoo = await Tattoo_artist.findOneBy({ id: TattooId });
+
+    const response = {
+      message,
+      user: updatedTattoo,
+      
+    };
+
+    return res.json(response);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: "Hubo un error al actualizar el usuario" });
+  }
+};
+
+export { registertattoo, TattooAppointments, update };
